@@ -389,9 +389,7 @@ export default function Home() {
                 <span className="text-lg text-slate-400">/ 베타 기간</span>
               </div>
               <div className="text-sm text-slate-500">
-                <span>정식 출시 후 예정가:</span>
-                <span className="ml-2 text-slate-400 font-medium">₩29,900 / 월</span>
-                <span className="ml-2 text-xs text-slate-600">(미정, 변동 가능)</span>
+                정식 출시 시 가격을 별도 안내드립니다
               </div>
             </div>
 
