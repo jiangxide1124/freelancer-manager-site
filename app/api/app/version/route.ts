@@ -13,10 +13,10 @@ export const dynamic = "force-dynamic";
  * - releaseNotes: 사용자에게 보여줄 짧은 변경사항
  */
 const VERSION_INFO = {
-  latest: "0.2.0",
+  latest: "0.2.1",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
-  releaseNotes: "라이선스 검증 시스템 + UI 개선",
+  releaseNotes: "자동 배포 시스템 도입 — 빌드/업로드/사이트 갱신/재설치 한 번에",
   publishedAt: "2026-05-13",
   // CORS 차단되지 않게 응답 헤더 추가
 };
