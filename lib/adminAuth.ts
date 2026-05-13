@@ -1,6 +1,18 @@
 import { NextRequest } from "next/server";
 
 /**
+ * Electron 앱에서 호출 가능하도록 CORS 허용
+ *  - Origin "*": 시크릿 헤더로 보호되므로 안전
+ *  - 메소드/헤더 명시
+ */
+export const ADMIN_CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, X-Admin-Secret",
+  "Access-Control-Max-Age": "86400",
+};
+
+/**
  * Admin API 인증 — X-Admin-Secret 헤더 검증
  *
  * Admin app만 이 헤더와 함께 호출할 수 있고, 일반 사용자는 차단됨.
@@ -24,7 +36,18 @@ export function unauthorizedResponse() {
     JSON.stringify({ error: "Unauthorized" }),
     {
       status: 401,
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        ...ADMIN_CORS_HEADERS,
+      },
     }
   );
+}
+
+/** OPTIONS 프리플라이트 — CORS 사전요청 응답 */
+export function corsPreflightResponse() {
+  return new Response(null, {
+    status: 204,
+    headers: ADMIN_CORS_HEADERS,
+  });
 }

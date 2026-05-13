@@ -1,9 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
-import { isAdminAuthorized, unauthorizedResponse } from "@/lib/adminAuth";
+import {
+  isAdminAuthorized,
+  unauthorizedResponse,
+  corsPreflightResponse,
+  ADMIN_CORS_HEADERS,
+} from "@/lib/adminAuth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+export function OPTIONS() {
+  return corsPreflightResponse();
+}
 
 /**
  * GET /api/admin/customers
@@ -76,19 +85,22 @@ export async function GET(request: NextRequest) {
       console.error("Customers query error:", error);
       return NextResponse.json(
         { error: `고객 조회 오류: ${error.message}` },
-        { status: 500 }
+        { status: 500, headers: ADMIN_CORS_HEADERS }
       );
     }
 
-    return NextResponse.json({
-      customers: data ?? [],
-      count: data?.length ?? 0,
-    });
+    return NextResponse.json(
+      {
+        customers: data ?? [],
+        count: data?.length ?? 0,
+      },
+      { headers: ADMIN_CORS_HEADERS }
+    );
   } catch (err) {
     console.error("Customers endpoint error:", err);
     return NextResponse.json(
       { error: `서버 오류: ${(err as Error).message}` },
-      { status: 500 }
+      { status: 500, headers: ADMIN_CORS_HEADERS }
     );
   }
 }

@@ -1,9 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
-import { isAdminAuthorized, unauthorizedResponse } from "@/lib/adminAuth";
+import {
+  isAdminAuthorized,
+  unauthorizedResponse,
+  corsPreflightResponse,
+  ADMIN_CORS_HEADERS,
+} from "@/lib/adminAuth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+export function OPTIONS() {
+  return corsPreflightResponse();
+}
 
 /**
  * GET /api/admin/stats
@@ -63,20 +72,23 @@ export async function GET(request: NextRequest) {
       0
     );
 
-    return NextResponse.json({
-      totalCustomers: totalCustomersRes.count ?? 0,
-      monthSignups: monthSignupsRes.count ?? 0,
-      activeSubscriptions: activeSubsRes.count ?? 0,
-      inactiveSubscriptions: inactiveSubsRes.count ?? 0,
-      monthlyRevenue,
-      activeLicenses: activeLicensesRes.count ?? 0,
-      timestamp: new Date().toISOString(),
-    });
+    return NextResponse.json(
+      {
+        totalCustomers: totalCustomersRes.count ?? 0,
+        monthSignups: monthSignupsRes.count ?? 0,
+        activeSubscriptions: activeSubsRes.count ?? 0,
+        inactiveSubscriptions: inactiveSubsRes.count ?? 0,
+        monthlyRevenue,
+        activeLicenses: activeLicensesRes.count ?? 0,
+        timestamp: new Date().toISOString(),
+      },
+      { headers: ADMIN_CORS_HEADERS }
+    );
   } catch (err) {
     console.error("Stats endpoint error:", err);
     return NextResponse.json(
       { error: `통계 조회 오류: ${(err as Error).message}` },
-      { status: 500 }
+      { status: 500, headers: ADMIN_CORS_HEADERS }
     );
   }
 }
