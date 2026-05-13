@@ -571,32 +571,61 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-slate-800 py-10">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500">
-          <div>© {new Date().getFullYear()} 프리랜서 관리 · 영상 콘텐츠 사업자용 자동화</div>
-          <div className="flex gap-4 flex-wrap justify-center">
-            <Link href="#features" className="hover:text-slate-300">
-              기능
-            </Link>
-            <Link href="#how" className="hover:text-slate-300">
-              사용 흐름
-            </Link>
-            <Link href="#pricing" className="hover:text-slate-300">
-              요금제
-            </Link>
-            <Link href="#download" className="hover:text-slate-300">
-              다운로드
-            </Link>
-            <Link href="#faq" className="hover:text-slate-300">
-              FAQ
-            </Link>
-            <a
-              href={KAKAO_OPEN_CHAT}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-slate-300"
-            >
-              문의
-            </a>
+        <div className="max-w-6xl mx-auto px-6">
+          {/* 메인 네비게이션 */}
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500 mb-8">
+            <div>© {new Date().getFullYear()} 프리랜서 관리 · 영상 콘텐츠 사업자용 자동화</div>
+            <div className="flex gap-4 flex-wrap justify-center">
+              <Link href="#features" className="hover:text-slate-300">
+                기능
+              </Link>
+              <Link href="#how" className="hover:text-slate-300">
+                사용 흐름
+              </Link>
+              <Link href="#pricing" className="hover:text-slate-300">
+                요금제
+              </Link>
+              <Link href="#download" className="hover:text-slate-300">
+                다운로드
+              </Link>
+              <Link href="#faq" className="hover:text-slate-300">
+                FAQ
+              </Link>
+              <a
+                href={KAKAO_OPEN_CHAT}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-300"
+              >
+                문의
+              </a>
+            </div>
+          </div>
+
+          {/* 법적 링크 + 사업자 정보 */}
+          <div className="pt-6 border-t border-slate-800/60 flex flex-col md:flex-row justify-between items-start gap-4 text-xs text-slate-500">
+            <div className="space-y-1.5 leading-relaxed">
+              <div className="text-slate-400 font-medium">수우튜디오</div>
+              <div>대표: 강희덕 · 사업자등록번호 735-36-01496</div>
+              <div>인천시 남동구 담방로21번길 24, 광명아파트 101동 1206호</div>
+              <div>
+                <a href="mailto:jiangxide@naver.com" className="hover:text-slate-300">
+                  jiangxide@naver.com
+                </a>
+                {' · '}
+                <a href="tel:01050684607" className="hover:text-slate-300">
+                  010-5068-4607
+                </a>
+              </div>
+            </div>
+            <div className="flex gap-4 shrink-0">
+              <Link href="/terms" className="hover:text-slate-300">
+                이용약관
+              </Link>
+              <Link href="/privacy" className="hover:text-slate-300 font-medium text-slate-400">
+                개인정보처리방침
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
