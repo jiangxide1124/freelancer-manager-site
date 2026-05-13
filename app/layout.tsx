@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SiteNav from "./_components/SiteNav";
 
 export const metadata: Metadata = {
   title: "프리랜서 관리 — 영상편집 의뢰·정산 자동화",
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 font-sans">
+        <SiteNav />
         {children}
       </body>
     </html>

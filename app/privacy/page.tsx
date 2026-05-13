@@ -35,19 +35,6 @@ function Article({
 export default function PrivacyPage() {
   return (
     <main className="flex-1">
-      {/* Top navigation */}
-      <div className="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-10">
-        <div className="max-w-3xl mx-auto px-6 py-4">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-slate-200 transition-colors"
-          >
-            <span>←</span>
-            <span>홈으로</span>
-          </Link>
-        </div>
-      </div>
-
       <article className="max-w-3xl mx-auto px-6 py-12 md:py-16">
         <header className="mb-12 pb-8 border-b border-slate-800">
           <h1 className="text-3xl md:text-4xl font-bold mb-3">
