@@ -623,7 +623,8 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="flex gap-4 shrink-0">
+            <div className="flex gap-4 shrink-0 flex-wrap justify-end">
+              <LicenseRecoveryButton className="hover:text-slate-300 cursor-pointer transition-colors" />
               <Link href="/terms" className="hover:text-slate-300">
                 이용약관
               </Link>

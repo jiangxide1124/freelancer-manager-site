@@ -1,5 +1,4 @@
 import Link from "next/link";
-import LicenseRecoveryButton from "./LicenseRecoveryButton";
 
 const KAKAO_OPEN_CHAT = "https://open.kakao.com/o/g39v5pui";
 
@@ -42,7 +41,6 @@ export default function SiteNav() {
           >
             FAQ
           </Link>
-          <LicenseRecoveryButton className="px-3 sm:px-3.5 py-2 text-slate-300 hover:text-purple-300 whitespace-nowrap transition-colors hidden lg:inline-flex text-sm sm:text-base cursor-pointer" />
           <a
             href={KAKAO_OPEN_CHAT}
             target="_blank"
