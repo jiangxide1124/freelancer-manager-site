@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BetaSignupButton from "./_components/BetaSignupButton";
+import LicenseRecoveryButton from "./_components/LicenseRecoveryButton";
 
 const FEATURES = [
   {
@@ -68,6 +69,10 @@ const FAQS: { q: string; a: string }[] = [
   {
     q: "정산·급여명세서 계산은 정확한가요?",
     a: "작업자별 단가, 구간 보너스, 누적 보너스, 원천징수 3.3%까지 모두 자동으로 계산합니다. 확정 전에 수동으로 확인·수정도 가능하니 안심하고 사용하실 수 있습니다.",
+  },
+  {
+    q: "시리얼 키를 잃어버렸어요. 다시 받을 수 있나요?",
+    a: "네, 가능합니다. 요금제 섹션의 \"🔍 시리얼 키를 잊으셨나요?\" 링크를 클릭하시고 신청 시 사용한 이메일을 입력하시면, 등록된 시리얼 키를 다시 이메일로 발송해드립니다. 보안상 이메일이 등록되지 않은 경우에도 동일한 메시지가 표시되니, 메일이 안 오면 다른 이메일로 시도해보세요.",
   },
   {
     q: "어떤 요금제인가요?",
@@ -421,6 +426,11 @@ export default function Home() {
             <p className="text-center mt-4 text-xs text-slate-500">
               이메일 입력 → 시리얼 키 즉시 발송 (수동 발급 X)
             </p>
+
+            {/* 키 찾기 — 이미 신청한 사용자용 */}
+            <div className="mt-5 pt-5 border-t border-slate-800/60 text-center">
+              <LicenseRecoveryButton />
+            </div>
           </div>
 
           {/* 정식 출시 후 안내 */}

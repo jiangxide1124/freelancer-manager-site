@@ -134,3 +134,139 @@ export async function sendLicenseKeyEmail(params: {
     return { success: false, error: message };
   }
 }
+
+/**
+ * 시리얼 키 찾기 이메일 발송 (사용자가 키 분실 시)
+ */
+export async function sendLicenseRecoveryEmail(params: {
+  to: string;
+  name: string | null;
+  licenses: { key: string; status: string; expiresAt: string | null }[];
+}): Promise<{ success: boolean; error?: string }> {
+  const { to, name, licenses } = params;
+  const greeting = name ? `${name}님,` : "안녕하세요,";
+
+  const licenseRows = licenses
+    .map((l) => {
+      const expiry = l.expiresAt
+        ? new Date(l.expiresAt).toISOString().split("T")[0]
+        : "무제한";
+      const statusBadge =
+        l.status === "active"
+          ? '<span style="display:inline-block;padding:2px 8px;border-radius:9999px;background:#10b98120;color:#34d399;font-size:11px;font-weight:600;">활성</span>'
+          : `<span style="display:inline-block;padding:2px 8px;border-radius:9999px;background:#f59e0b20;color:#fbbf24;font-size:11px;font-weight:600;">${l.status}</span>`;
+      return `
+        <div style="background:#0f172a;border:1px solid #1e293b;border-radius:12px;padding:18px;margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="color:#94a3b8;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">License Key</span>
+            ${statusBadge}
+          </div>
+          <div style="font-family:'SF Mono','Menlo','Monaco','Courier New',monospace;font-size:18px;font-weight:700;color:#34d399;letter-spacing:0.05em;word-break:break-all;margin-bottom:8px;">
+            ${l.key}
+          </div>
+          <div style="color:#64748b;font-size:11px;">
+            만료일: ${expiry}
+          </div>
+        </div>
+      `;
+    })
+    .join("");
+
+  const html = `
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>프리랜서 관리 시리얼 키 찾기</title>
+</head>
+<body style="margin:0;padding:0;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:#0f172a;">
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f3f4f6;padding:40px 16px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+
+          <!-- Header -->
+          <tr>
+            <td style="background:linear-gradient(135deg,#7c3aed 0%,#1e3a8a 100%);padding:32px;text-align:center;">
+              <div style="display:inline-block;padding:6px 14px;border-radius:9999px;background:rgba(255,255,255,0.1);color:#c4b5fd;font-size:12px;font-weight:600;letter-spacing:0.05em;margin-bottom:16px;">
+                🔍 프리랜서 관리
+              </div>
+              <h1 style="margin:0;color:#ffffff;font-size:24px;font-weight:700;letter-spacing:-0.02em;">
+                시리얼 키 찾기 결과
+              </h1>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:32px;">
+              <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">${greeting}</p>
+              <p style="margin:0 0 24px;font-size:15px;line-height:1.7;color:#334155;">
+                요청하신 이메일로 발급된 시리얼 키 ${licenses.length}건을 안내드립니다.
+              </p>
+
+              ${licenseRows}
+
+              <h3 style="margin:32px 0 12px;font-size:15px;font-weight:700;color:#0f172a;">
+                사용 방법
+              </h3>
+              <ol style="margin:0 0 24px;padding-left:20px;font-size:14px;line-height:1.8;color:#475569;">
+                <li>프로그램 실행 → 시리얼 키 입력 화면</li>
+                <li>위 키 중 하나를 정확히 복사하여 붙여넣기</li>
+                <li>활성화 완료 → 즉시 사용</li>
+              </ol>
+
+              <div style="background:#fef3c7;border:1px solid #fde68a;border-radius:8px;padding:14px 16px;margin:24px 0;">
+                <p style="margin:0;font-size:13px;line-height:1.6;color:#78350f;">
+                  <strong>💡 분실 방지 팁</strong><br>
+                  이 메일을 메모장이나 1Password 같은 안전한 곳에 저장해두시면
+                  나중에 키 찾기 요청 없이도 바로 확인 가능합니다.
+                </p>
+              </div>
+
+              <p style="margin:24px 0 0;font-size:13px;line-height:1.7;color:#64748b;">
+                만약 본인이 키 찾기를 요청하지 않으셨다면 이 메일은 무시하셔도 됩니다.
+                키 자체는 변경되지 않았으며, 이전에 보관 중이던 키 그대로 사용 가능합니다.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background:#f8fafc;padding:20px 32px;border-top:1px solid #e2e8f0;">
+              <p style="margin:0;font-size:11px;line-height:1.6;color:#94a3b8;">
+                수우튜디오 · 대표 강희덕 · 사업자등록번호 735-36-01496<br>
+                인천시 남동구 담방로21번길 24, 광명아파트 101동 1206호<br>
+                <a href="https://freelancer-manager-site.vercel.app/terms" style="color:#94a3b8;">이용약관</a> ·
+                <a href="https://freelancer-manager-site.vercel.app/privacy" style="color:#94a3b8;">개인정보처리방침</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `.trim();
+
+  try {
+    const { error } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: [to],
+      replyTo: REPLY_TO,
+      subject: "🔍 프리랜서 관리 — 시리얼 키 찾기 결과",
+      html,
+    });
+    if (error) {
+      console.error("Recovery email send error:", error);
+      return { success: false, error: error.message };
+    }
+    return { success: true };
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : "Unknown error";
+    console.error("Recovery email exception:", err);
+    return { success: false, error: message };
+  }
+}
