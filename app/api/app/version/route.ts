@@ -13,10 +13,10 @@ export const dynamic = "force-dynamic";
  * - releaseNotes: 사용자에게 보여줄 짧은 변경사항
  */
 const VERSION_INFO = {
-  latest: "0.2.2",
+  latest: "0.2.3",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
-  releaseNotes: "Analytics + FAQ 카테고리 + OG 이미지/SEO + 즉시 표시 툴팁 전면 적용",
+  releaseNotes: "운영 대시보드 추가 - GitHub Releases + Resend + Supabase 통합 모니터링 + 외부 도구 빠른 링크",
   publishedAt: "2026-05-13",
   // CORS 차단되지 않게 응답 헤더 추가
 };
