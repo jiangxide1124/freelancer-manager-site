@@ -11,6 +11,7 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<Result>(null);
@@ -66,6 +67,7 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
         body: JSON.stringify({
           email,
           name: name.trim() || undefined,
+          phone: phone.trim() || undefined,
         }),
       });
 
@@ -80,6 +82,7 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
         });
         setEmail("");
         setName("");
+        setPhone("");
         setAgreed(false);
       } else {
         setResult({
@@ -212,6 +215,31 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
                       placeholder="홍길동"
                       className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none text-white placeholder-slate-600 disabled:opacity-50 transition-colors"
                     />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="signup-phone"
+                      className="block text-xs font-medium text-slate-400 mb-1.5"
+                    >
+                      전화번호{" "}
+                      <span className="text-slate-600 font-normal">(선택)</span>
+                    </label>
+                    <input
+                      id="signup-phone"
+                      type="tel"
+                      autoComplete="tel"
+                      inputMode="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      disabled={submitting}
+                      maxLength={30}
+                      placeholder="010-0000-0000"
+                      className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none text-white placeholder-slate-600 disabled:opacity-50 transition-colors"
+                    />
+                    <p className="mt-1.5 text-[11px] text-slate-500">
+                      긴급 안내·결제 문의 시 연락드릴 수 있어요
+                    </p>
                   </div>
 
                   <label className="flex items-start gap-2.5 text-xs text-slate-400 cursor-pointer leading-relaxed">

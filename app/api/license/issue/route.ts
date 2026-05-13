@@ -48,7 +48,10 @@ export async function POST(request: NextRequest) {
     if (lookupError) {
       console.error("Customer lookup error:", lookupError);
       return NextResponse.json(
-        { success: false, error: "고객 조회 중 오류가 발생했습니다." },
+        {
+          success: false,
+          error: `고객 조회 오류: ${lookupError.message}${lookupError.code ? ` (code: ${lookupError.code})` : ""}`,
+        },
         { status: 500 }
       );
     }
@@ -85,7 +88,10 @@ export async function POST(request: NextRequest) {
       if (insertError || !newCustomer) {
         console.error("Customer insert error:", insertError);
         return NextResponse.json(
-          { success: false, error: "고객 등록 중 오류가 발생했습니다." },
+          {
+            success: false,
+            error: `고객 등록 오류: ${insertError?.message ?? "unknown"}${insertError?.code ? ` (code: ${insertError.code})` : ""}`,
+          },
           { status: 500 }
         );
       }
@@ -112,7 +118,10 @@ export async function POST(request: NextRequest) {
     if (subError || !subscription) {
       console.error("Subscription insert error:", subError);
       return NextResponse.json(
-        { success: false, error: "구독 생성 중 오류가 발생했습니다." },
+        {
+          success: false,
+          error: `구독 생성 오류: ${subError?.message ?? "unknown"}${subError?.code ? ` (code: ${subError.code})` : ""}`,
+        },
         { status: 500 }
       );
     }
