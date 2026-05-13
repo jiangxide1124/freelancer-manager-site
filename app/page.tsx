@@ -69,12 +69,12 @@ const FAQS: { q: string; a: string }[] = [
     a: "작업자별 단가, 구간 보너스, 누적 보너스, 원천징수 3.3%까지 모두 자동으로 계산합니다. 확정 전에 수동으로 확인·수정도 가능하니 안심하고 사용하실 수 있습니다.",
   },
   {
-    q: "한 번 결제하면 매월 비용이 나가나요?",
-    a: "아니요. 구독제가 아닙니다. 한 번 구매하시면 평생 사용 가능하며, 무료 업데이트도 함께 제공됩니다.",
+    q: "어떤 요금제인가요?",
+    a: "월 구독제로 운영됩니다. 구독 기간 동안 모든 기능을 무제한으로 사용하실 수 있고, 정기 무료 업데이트도 함께 제공됩니다. 언제든 해지 가능하며, 7일 무료 체험 후 자동 결제됩니다. 자세한 가격은 정식 출시 시점에 공개됩니다.",
   },
   {
     q: "환불은 가능한가요?",
-    a: "정식 출시 후 구매하신 분께는 결제일로부터 7일 내 환불을 보장합니다. 베타 기간 동안은 무료로 충분히 체험해보실 수 있으니 부담 없이 사용해보세요.",
+    a: "정식 출시 후 결제하신 분께는 결제일로부터 7일 내 100% 환불을 보장합니다. 또한 7일 무료 체험 기간 중 해지하시면 결제가 발생하지 않습니다. 베타 기간 동안은 무료로 충분히 체험해보세요.",
   },
 ];
 
@@ -175,7 +175,7 @@ export default function Home() {
               </a>
             </div>
             <p className="mt-6 text-xs text-slate-500">
-              macOS · Windows 지원 · 데이터는 내 컴퓨터에만 저장 · 평생 사용
+              macOS · Windows 지원 · 데이터는 내 컴퓨터에만 저장 · 베타 기간 무료
             </p>
           </div>
         </div>
@@ -345,6 +345,106 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pricing */}
+      <section id="pricing" className="border-t border-slate-800 bg-gradient-to-b from-slate-950 via-blue-950/10 to-slate-950">
+        <div className="max-w-3xl mx-auto px-6 py-20">
+          <div className="text-center mb-12">
+            <div className="text-xs font-semibold tracking-wider text-blue-400 uppercase mb-2">
+              요금제
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              간단한 요금, 모든 기능 포함
+            </h2>
+            <p className="text-slate-400">복잡한 플랜 비교 없이, 한 가지면 충분합니다</p>
+          </div>
+
+          <div className="relative rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border-2 border-blue-700/40 p-8 md:p-10 shadow-2xl shadow-blue-900/30 overflow-hidden">
+            {/* 베타 뱃지 */}
+            <div className="absolute top-6 right-6">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-xs font-semibold text-emerald-300">
+                🎁 베타 진행 중
+              </div>
+            </div>
+
+            <h3 className="text-2xl font-bold mb-2">프리랜서 관리 Pro</h3>
+            <p className="text-sm text-slate-400 mb-8">
+              영상 콘텐츠 사업자를 위한 올인원 자동화
+            </p>
+
+            {/* 가격 영역 */}
+            <div className="mb-8">
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+                  무료
+                </span>
+                <span className="text-lg text-slate-400">/ 베타 기간</span>
+              </div>
+              <div className="text-sm text-slate-500">
+                <span>정식 출시 후 예정가:</span>
+                <span className="ml-2 text-slate-400 font-medium">₩29,900 / 월</span>
+                <span className="ml-2 text-xs text-slate-600">(미정, 변동 가능)</span>
+              </div>
+            </div>
+
+            {/* 혜택 리스트 */}
+            <ul className="space-y-3 mb-8">
+              {[
+                "무제한 작업자 등록",
+                "무제한 의뢰·영상 관리",
+                "조회수 자동 추적 (YouTube·TikTok·Instagram)",
+                "정산·급여명세서 PDF 자동 생성",
+                "주간/월간 자동 보고서 이메일 발송",
+                "채널별 예상 수익 자동 분리",
+                "데이터 로컬 저장 + 백업·복원",
+                "정기 무료 업데이트",
+                "우선 카카오톡 지원",
+              ].map((feature) => (
+                <li
+                  key={feature}
+                  className="flex items-start gap-3 text-sm text-slate-300"
+                >
+                  <span className="text-emerald-400 mt-0.5 flex-shrink-0 font-bold">
+                    ✓
+                  </span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* CTA 버튼 */}
+            <a
+              href={KAKAO_OPEN_CHAT}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold text-lg transition-all shadow-lg shadow-blue-900/50"
+            >
+              🎁 베타 무료로 시작하기
+            </a>
+
+            <p className="text-center mt-4 text-xs text-slate-500">
+              카카오톡 오픈채팅으로 시리얼 키 무료 발급
+            </p>
+          </div>
+
+          {/* 정식 출시 후 안내 */}
+          <div className="mt-8 p-5 rounded-xl bg-slate-900/40 border border-slate-800 text-sm">
+            <div className="flex items-start gap-3">
+              <span className="text-blue-400 flex-shrink-0 text-lg">ℹ️</span>
+              <div className="flex-1">
+                <p className="font-medium text-slate-200 mb-2">정식 출시 후 안내</p>
+                <ul className="space-y-1.5 text-xs text-slate-400 leading-relaxed">
+                  <li>· 월 구독제로 운영되며, 언제든 해지 가능합니다</li>
+                  <li>· 7일 무료 체험 후 자동 결제 (체험 중 해지 시 결제 X)</li>
+                  <li>· 토스페이먼츠 정기결제 — 카드 · 카카오페이 · 네이버페이 지원 예정</li>
+                  <li>· 결제 후 7일 내 100% 환불 보장</li>
+                  <li>· 베타 사용자에게는 출시 직전 별도 안내드립니다</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Download */}
       <section
         id="download"
@@ -479,6 +579,9 @@ export default function Home() {
             </Link>
             <Link href="#how" className="hover:text-slate-300">
               사용 흐름
+            </Link>
+            <Link href="#pricing" className="hover:text-slate-300">
+              요금제
             </Link>
             <Link href="#download" className="hover:text-slate-300">
               다운로드
