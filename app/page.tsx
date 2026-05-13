@@ -78,6 +78,65 @@ const FAQS: { q: string; a: string }[] = [
   },
 ];
 
+const PERSONAS: { icon: string; title: string; desc: string }[] = [
+  {
+    icon: "🎬",
+    title: "외주 영상편집자가 3명 이상",
+    desc: "여러 작업자에게 의뢰는 줬는데, 누가 어디까지 했는지 매번 카톡으로 묻고 답하는 게 일이 된 1인 미디어 운영자",
+  },
+  {
+    icon: "💼",
+    title: "매달 정산이 스트레스",
+    desc: "월말마다 작업자별 영상 수·단가·구간 보너스를 엑셀에 손으로 계산하고, 명세서는 따로 또 만들고 있는 사장님",
+  },
+  {
+    icon: "📺",
+    title: "채널을 여러 개 운영 중",
+    desc: "메인·부채널·여러 플랫폼을 함께 굴리고 있는데 어느 채널이 진짜 돈이 되는지 헷갈리는 콘텐츠 사업자",
+  },
+];
+
+const STEPS: { icon: string; title: string; desc: string }[] = [
+  {
+    icon: "⬇",
+    title: "다운로드 & 설치",
+    desc: "macOS 한 번 클릭으로 설치 완료. 시리얼 키 입력하면 바로 시작.",
+  },
+  {
+    icon: "👥",
+    title: "작업자 등록",
+    desc: "이름·연락처·단가·구간 보너스 설정. 한 번만 등록하면 끝.",
+  },
+  {
+    icon: "📋",
+    title: "의뢰 등록",
+    desc: "주제·작업자·영상 URL 입력. 칸반 보드에서 진행 상태 자동 추적.",
+  },
+  {
+    icon: "💰",
+    title: "자동 정산",
+    desc: "월말에 버튼 한 번 → 정산서·급여명세서 PDF 자동 생성.",
+  },
+];
+
+const COMPARISON: { item: string; excel: string; ours: string }[] = [
+  { item: "조회수 추적", excel: "매일 사이트 들어가 수동 입력", ours: "API 연동으로 매일 자동 갱신" },
+  { item: "정산 계산", excel: "수기 계산 + 검산 반복", ours: "단가·보너스·원천징수 자동 계산" },
+  { item: "급여명세서", excel: "워드·엑셀로 따로 작성", ours: "버튼 한 번 → PDF 자동 출력" },
+  { item: "주간/월간 보고서", excel: "직접 차트 그리기", ours: "정한 요일에 자동 이메일 발송" },
+  { item: "데이터 백업", excel: "파일 일일이 복사", ours: "백업·복원 메뉴 한 번 클릭" },
+  { item: "여러 채널 수익 분리", excel: "시트마다 따로 정리", ours: "채널별 예상 수익 자동 분리" },
+];
+
+const SCREENSHOTS: { icon: string; title: string; desc: string }[] = [
+  { icon: "📊", title: "대시보드 KPI", desc: "월간 조회수·예상 수익·작업 진행률을 한 화면에" },
+  { icon: "📋", title: "칸반 보드", desc: "제안 → 작업중 → 완료. 드래그 한 번으로 상태 변경" },
+  { icon: "💰", title: "자동 정산", desc: "작업자별 단가·보너스·세금이 실시간으로 계산" },
+  { icon: "📄", title: "급여명세서 PDF", desc: "회사 로고·도장 이미지 포함 깔끔한 명세서 출력" },
+  { icon: "📈", title: "주간 보고서", desc: "조회수 추이·작업자별 성과를 차트로 시각화" },
+  { icon: "🎬", title: "영상 라이브러리", desc: "플랫폼별 영상 통합 관리 + 자동 메타데이터 추적" },
+];
+
 export default function Home() {
   return (
     <main className="flex-1">
@@ -122,6 +181,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Target Persona */}
+      <section id="who" className="border-t border-slate-800">
+        <div className="max-w-5xl mx-auto px-6 py-20">
+          <div className="text-center mb-12">
+            <div className="text-xs font-semibold tracking-wider text-emerald-400 uppercase mb-2">
+              이런 분께 추천
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">혹시 이런 상황이세요?</h2>
+            <p className="text-slate-400">한 가지라도 해당된다면 — 이 프로그램이 답입니다</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {PERSONAS.map((p) => (
+              <div
+                key={p.title}
+                className="p-6 rounded-xl bg-emerald-900/10 border border-emerald-800/40 hover:border-emerald-600/70 transition-colors"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-2xl">{p.icon}</span>
+                  <span className="text-emerald-400 text-xl">✓</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-slate-100 leading-snug">
+                  {p.title}
+                </h3>
+                <p className="text-sm text-slate-400 leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section id="features" className="max-w-6xl mx-auto px-6 py-20">
         <div className="text-center mb-14">
@@ -144,6 +233,115 @@ export default function Home() {
               <p className="text-sm text-slate-400 leading-relaxed">{f.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section id="how" className="border-t border-slate-800 bg-slate-900/20">
+        <div className="max-w-5xl mx-auto px-6 py-20">
+          <div className="text-center mb-14">
+            <div className="text-xs font-semibold tracking-wider text-blue-400 uppercase mb-2">
+              사용 흐름
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">5분이면 시작합니다</h2>
+            <p className="text-slate-400">복잡한 설정 없이, 4단계로 끝</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {STEPS.map((s, i) => (
+              <div
+                key={i}
+                className="relative p-6 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-blue-700/50 transition-colors"
+              >
+                <div className="absolute -top-3 -left-2 w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 text-white text-sm font-bold flex items-center justify-center shadow-lg shadow-blue-900/50">
+                  {i + 1}
+                </div>
+                <div className="text-3xl mb-3 mt-1">{s.icon}</div>
+                <h3 className="text-base font-semibold mb-2 text-slate-100">
+                  {s.title}
+                </h3>
+                <p className="text-sm text-slate-400 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison: Excel vs Ours */}
+      <section id="why" className="border-t border-slate-800">
+        <div className="max-w-4xl mx-auto px-6 py-20">
+          <div className="text-center mb-12">
+            <div className="text-xs font-semibold tracking-wider text-rose-400 uppercase mb-2">
+              엑셀과 비교하면
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">손으로 하던 일, 자동으로</h2>
+            <p className="text-slate-400">엑셀로 8시간 걸리던 일이 클릭 한 번으로</p>
+          </div>
+          <div className="rounded-xl overflow-hidden border border-slate-800 shadow-xl shadow-black/30">
+            <div className="grid grid-cols-3 bg-slate-900 text-xs sm:text-sm font-semibold">
+              <div className="px-3 sm:px-5 py-4 text-slate-400">항목</div>
+              <div className="px-3 sm:px-5 py-4 border-l border-slate-800 text-rose-300">
+                엑셀로 할 때
+              </div>
+              <div className="px-3 sm:px-5 py-4 border-l border-slate-800 text-emerald-300">
+                프리랜서 관리
+              </div>
+            </div>
+            {COMPARISON.map((row, i) => (
+              <div
+                key={i}
+                className={`grid grid-cols-3 text-xs sm:text-sm ${
+                  i % 2 === 0 ? 'bg-slate-950/60' : 'bg-slate-900/30'
+                }`}
+              >
+                <div className="px-3 sm:px-5 py-4 font-medium text-slate-200">
+                  {row.item}
+                </div>
+                <div className="px-3 sm:px-5 py-4 border-l border-slate-800 text-slate-500">
+                  <span className="text-rose-500 mr-1">✕</span>
+                  {row.excel}
+                </div>
+                <div className="px-3 sm:px-5 py-4 border-l border-slate-800 text-emerald-200">
+                  <span className="text-emerald-400 mr-1">✓</span>
+                  {row.ours}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Screenshots */}
+      <section id="screenshots" className="border-t border-slate-800 bg-slate-900/20">
+        <div className="max-w-6xl mx-auto px-6 py-20">
+          <div className="text-center mb-12">
+            <div className="text-xs font-semibold tracking-wider text-sky-400 uppercase mb-2">
+              화면 미리보기
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">실제 작동하는 화면</h2>
+            <p className="text-slate-400">백 마디 설명보다 한 장의 화면</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {SCREENSHOTS.map((s, i) => (
+              <div
+                key={i}
+                className="rounded-xl bg-slate-900/60 border border-slate-800 hover:border-sky-700/50 transition-colors overflow-hidden"
+              >
+                <div className="aspect-video bg-gradient-to-br from-slate-800/40 via-slate-900 to-slate-950 flex flex-col items-center justify-center text-slate-700 border-b border-slate-800">
+                  <div className="text-5xl mb-2 opacity-70">{s.icon}</div>
+                  <div className="text-[10px] uppercase tracking-wider text-slate-600">
+                    coming soon
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h3 className="text-base font-semibold mb-1 text-slate-100">{s.title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-center mt-10 text-xs text-slate-500">
+            📷 실제 화면 캡처는 곧 업데이트됩니다
+          </p>
         </div>
       </section>
 
@@ -275,9 +473,12 @@ export default function Home() {
       <footer className="border-t border-slate-800 py-10">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500">
           <div>© {new Date().getFullYear()} 프리랜서 관리 · 영상 콘텐츠 사업자용 자동화</div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap justify-center">
             <Link href="#features" className="hover:text-slate-300">
               기능
+            </Link>
+            <Link href="#how" className="hover:text-slate-300">
+              사용 흐름
             </Link>
             <Link href="#download" className="hover:text-slate-300">
               다운로드
