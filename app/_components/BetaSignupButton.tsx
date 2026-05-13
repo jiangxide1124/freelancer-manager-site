@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 type Result =
   | { type: "success"; message: string }
+  | { type: "warning"; message: string; licenseKey?: string }
   | { type: "error"; message: string }
   | null;
 
@@ -74,12 +75,23 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
       const data = await response.json().catch(() => null);
 
       if (response.ok && data?.success) {
-        setResult({
-          type: "success",
-          message:
-            data.message ||
-            "시리얼 키를 이메일로 발송했습니다. 메일함을 확인해주세요.",
-        });
+        // 이메일 발송 실패해도 시리얼 키는 발급된 경우
+        if (data.email_sent === false && data.license_key) {
+          setResult({
+            type: "warning",
+            message:
+              data.warning ||
+              "이메일 발송에 실패했지만 시리얼 키는 정상 발급됐습니다. 아래 키를 복사해 안전한 곳에 보관해주세요.",
+            licenseKey: data.license_key,
+          });
+        } else {
+          setResult({
+            type: "success",
+            message:
+              data.message ||
+              "시리얼 키를 이메일로 발송했습니다. 메일함을 확인해주세요.",
+          });
+        }
         setEmail("");
         setName("");
         setPhone("");
@@ -158,6 +170,48 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
                   className="px-6 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors"
                 >
                   확인
+                </button>
+              </div>
+            ) : result?.type === "warning" ? (
+              <div className="text-center py-2">
+                <div className="text-5xl mb-3">⚠️</div>
+                <h3 className="text-xl font-bold text-amber-300 mb-3">
+                  키는 발급됐지만 이메일 발송 실패
+                </h3>
+                <p className="text-sm text-slate-300 leading-relaxed mb-4">
+                  {result.message}
+                </p>
+                {result.licenseKey && (
+                  <div className="p-4 rounded-xl bg-slate-950 border-2 border-amber-700/50 mb-4">
+                    <p className="text-xs text-amber-400 font-semibold uppercase tracking-wider mb-2">
+                      Your License Key
+                    </p>
+                    <p className="font-mono text-lg font-bold text-emerald-300 break-all select-all leading-relaxed">
+                      {result.licenseKey}
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (result.licenseKey) {
+                          navigator.clipboard.writeText(result.licenseKey).catch(() => {});
+                        }
+                      }}
+                      className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-xs font-medium transition-colors"
+                    >
+                      📋 키 복사
+                    </button>
+                  </div>
+                )}
+                <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-400 text-left mb-4 leading-relaxed">
+                  <p className="font-medium text-slate-300 mb-1">⚠️ 안내</p>
+                  <p>위 키를 안전한 곳(메모장·1Password 등)에 복사해두세요. 이메일이 안 와도 위 키로 활성화 가능합니다.</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={close}
+                  className="px-6 py-2.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-semibold text-sm transition-colors"
+                >
+                  확인 (키 복사했음)
                 </button>
               </div>
             ) : (
