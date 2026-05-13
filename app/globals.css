@@ -41,7 +41,7 @@ h3 {
   display: none;
 }
 
-/* 앵커 스크롤 시 고정 헤더 높이만큼 여유 */
+/* 앵커 스크롤 시 고정 헤더 높이만큼 여유 (nav: h-16 = 64px + 여유) */
 html {
-  scroll-padding-top: 64px;
+  scroll-padding-top: 72px;
 }
