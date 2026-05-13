@@ -73,8 +73,8 @@ const FAQS: { q: string; a: string }[] = [
     a: "월 구독제로 운영됩니다. 구독 기간 동안 모든 기능을 무제한으로 사용하실 수 있고, 정기 무료 업데이트도 함께 제공됩니다. 언제든 해지 가능하며, 7일 무료 체험 후 자동 결제됩니다. 자세한 가격은 정식 출시 시점에 공개됩니다.",
   },
   {
-    q: "환불은 가능한가요?",
-    a: "정식 출시 후 결제하신 분께는 결제일로부터 7일 내 100% 환불을 보장합니다. 또한 7일 무료 체험 기간 중 해지하시면 결제가 발생하지 않습니다. 베타 기간 동안은 무료로 충분히 체험해보세요.",
+    q: "환불 정책은 어떻게 되나요?",
+    a: "구독제는 언제든 해지 가능하며, 해지 시 다음 결제부터 중단됩니다(이미 결제된 기간은 그대로 사용 가능). 7일 무료 체험 기간 중 해지하시면 결제가 발생하지 않으니 부담 없이 충분히 사용해보세요. 단, 결제 후 서비스를 한 번도 이용하지 않은 경우 7일 이내 청약 철회가 가능합니다(전자상거래법). 자세한 내용은 이용약관을 참조해주세요.",
   },
 ];
 
@@ -434,10 +434,10 @@ export default function Home() {
                 <p className="font-medium text-slate-200 mb-2">정식 출시 후 안내</p>
                 <ul className="space-y-1.5 text-xs text-slate-400 leading-relaxed">
                   <li>· 월 구독제로 운영되며, 언제든 해지 가능합니다</li>
-                  <li>· 7일 무료 체험 후 자동 결제 (체험 중 해지 시 결제 X)</li>
+                  <li>· 7일 무료 체험 후 자동 결제 (체험 기간 중 해지 시 결제 X)</li>
                   <li>· 토스페이먼츠 정기결제 — 카드 · 카카오페이 · 네이버페이 지원 예정</li>
-                  <li>· 결제 후 7일 내 100% 환불 보장</li>
-                  <li>· 베타 사용자에게는 출시 직전 별도 안내드립니다</li>
+                  <li>· 구독 해지 시 다음 결제만 중단 (이미 결제된 기간 계속 이용 가능)</li>
+                  <li>· 베타 사용자에게는 정식 출시 직전 별도 안내드립니다</li>
                 </ul>
               </div>
             </div>
@@ -609,8 +609,8 @@ export default function Home() {
               <div>대표: 강희덕 · 사업자등록번호 735-36-01496</div>
               <div>인천시 남동구 담방로21번길 24, 광명아파트 101동 1206호</div>
               <div>
-                <a href="mailto:jiangxide@naver.com" className="hover:text-slate-300">
-                  jiangxide@naver.com
+                <a href="mailto:freelancer-manager@naver.com" className="hover:text-slate-300">
+                  freelancer-manager@naver.com
                 </a>
                 {' · '}
                 <a href="tel:01050684607" className="hover:text-slate-300">

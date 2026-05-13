@@ -12,7 +12,7 @@ const COMPANY = {
   bizNumber: "735-36-01496",
   address: "인천시 남동구 담방로21번길 24, 광명아파트 101동 1206호",
   phone: "010-5068-4607",
-  email: "jiangxide@naver.com",
+  email: "freelancer-manager@naver.com",
   kakao: "https://open.kakao.com/o/g39v5pui",
   effectiveDate: "2026년 5월 13일",
 };

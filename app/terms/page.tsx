@@ -12,7 +12,7 @@ const COMPANY = {
   bizNumber: "735-36-01496",
   address: "인천시 남동구 담방로21번길 24, 광명아파트 101동 1206호",
   phone: "010-5068-4607",
-  email: "jiangxide@naver.com",
+  email: "freelancer-manager@naver.com",
   effectiveDate: "2026년 5월 13일",
 };
 
@@ -187,21 +187,50 @@ export default function TermsPage() {
             <ol className="list-decimal ml-5 space-y-1.5">
               <li>
                 이용자는 언제든지 구독을 해지할 수 있으며, 해지 시 다음 결제일부터
-                결제가 중단됩니다.
+                결제가 중단됩니다. 이미 결제된 기간 동안에는 서비스를 계속
+                이용하실 수 있습니다.
               </li>
               <li>
-                회사는 다음과 같은 환불 정책을 운영합니다.
+                환불 정책은 다음과 같습니다.
                 <ul className="list-disc ml-5 mt-1.5 space-y-1 text-slate-400">
-                  <li>결제일로부터 7일 이내: 100% 환불</li>
                   <li>
-                    결제일로부터 7일 초과: 환불 불가 (단, 회사의 귀책 사유 시 일할
-                    환불)
+                    <span className="text-slate-300 font-medium">
+                      7일 무료 체험 기간 중 해지
+                    </span>
+                    : 결제가 발생하지 않습니다.
+                  </li>
+                  <li>
+                    <span className="text-slate-300 font-medium">
+                      결제 완료 후
+                    </span>
+                    : 구독 해지로 다음 결제만 중단되며, 이미 결제된 금액은 환불되지
+                    않습니다.
+                  </li>
+                  <li>
+                    <span className="text-slate-300 font-medium">
+                      청약 철회 (전자상거래법 제17조)
+                    </span>
+                    : 결제일로부터 7일 이내, 서비스를 한 번도 이용하지 않은 경우에
+                    한하여 청약 철회 및 환불이 가능합니다. 서비스 이용(시리얼 키
+                    인증 또는 앱 실행) 시점부터는 청약 철회가 제한됩니다.
+                  </li>
+                  <li>
+                    <span className="text-slate-300 font-medium">
+                      회사 귀책 사유
+                    </span>
+                    : 서비스 장기 중단 등 회사의 귀책 사유로 서비스 이용이 불가능한
+                    경우 잔여 기간을 일할 계산하여 환불해드립니다.
                   </li>
                 </ul>
               </li>
               <li>
-                환불 신청은 회사가 지정한 고객지원 채널(카카오톡 오픈채팅, 이메일)을
-                통해 가능합니다.
+                구독 해지 및 환불 신청은 카카오톡 오픈채팅 또는 이메일을 통해
+                요청하실 수 있습니다.
+              </li>
+              <li>
+                구독제는 「전자상거래 등에서의 소비자보호에 관한 법률」 제17조
+                제2항 제5호(용역 또는 디지털콘텐츠의 제공이 개시된 경우)에 따라
+                청약 철회가 제한될 수 있음을 회사는 결제 전 명확히 고지합니다.
               </li>
             </ol>
           </Article>
