@@ -134,8 +134,26 @@ ALTER TABLE public.license_events ENABLE ROW LEVEL SECURITY;
 
 
 -- =====================================================
+-- 5. rate_limits — Rate Limit 추적 (API 남용 방지)
+-- =====================================================
+CREATE TABLE IF NOT EXISTS public.rate_limits (
+  id          BIGSERIAL PRIMARY KEY,
+  bucket      TEXT NOT NULL,
+  identifier  TEXT NOT NULL,
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+COMMENT ON TABLE public.rate_limits IS 'API rate limit 추적 (예: recover_email, recover_ip, issue_ip)';
+
+CREATE INDEX IF NOT EXISTS idx_rate_limits_lookup
+  ON public.rate_limits(bucket, identifier, created_at DESC);
+
+ALTER TABLE public.rate_limits ENABLE ROW LEVEL SECURITY;
+
+
+-- =====================================================
 -- 완료
 -- =====================================================
--- 생성: 테이블 4개 + 인덱스 8개 + 트리거 3개 + 함수 1개
+-- 생성: 테이블 5개 + 인덱스 9개 + 트리거 3개 + 함수 1개
 -- 보안: 모든 테이블 RLS 활성화 (service_role만 접근 가능)
 -- =====================================================

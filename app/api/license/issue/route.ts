@@ -2,11 +2,19 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import { generateLicenseKey } from "@/lib/license";
 import { sendLicenseKeyEmail } from "@/lib/resend";
+import {
+  checkAndRecordRateLimit,
+  extractClientIp,
+} from "@/lib/rateLimit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// 같은 IP에서 시간당 5번까지만 신청 허용 (베타 스팸 방지)
+const ISSUE_IP_LIMIT_PER_HOUR = 5;
+const ISSUE_WINDOW_MINUTES = 60;
 
 /**
  * POST /api/license/issue
@@ -34,6 +42,24 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { success: false, error: "올바른 이메일 주소를 입력해주세요." },
         { status: 400 }
+      );
+    }
+
+    // Rate limit (IP 기준 — 베타 신청 스팸 방지)
+    const clientIp = extractClientIp(request.headers);
+    const ipCheck = await checkAndRecordRateLimit(
+      "issue_ip",
+      clientIp,
+      ISSUE_IP_LIMIT_PER_HOUR,
+      ISSUE_WINDOW_MINUTES
+    );
+    if (!ipCheck.allowed) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: `요청이 너무 많습니다. ${ISSUE_WINDOW_MINUTES}분 후 다시 시도해주세요.`,
+        },
+        { status: 429 }
       );
     }
 

@@ -1,11 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import { sendLicenseRecoveryEmail } from "@/lib/resend";
+import {
+  checkAndRecordRateLimit,
+  extractClientIp,
+  cleanupOldRateLimits,
+} from "@/lib/rateLimit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Rate limit 정책
+const IP_LIMIT_PER_HOUR = 10;       // IP당 시간당 10번 (서버 부하 방지)
+const EMAIL_LIMIT_PER_HOUR = 3;     // 이메일당 시간당 3번 (수신자 inbox 보호)
+const WINDOW_MINUTES = 60;
 
 /**
  * POST /api/license/recover
@@ -43,6 +53,43 @@ export async function POST(request: NextRequest) {
       message:
         "해당 이메일로 발급된 시리얼 키가 있다면 이메일로 다시 발송했습니다. 메일함을 확인해주세요. (스팸함도 확인)",
     };
+
+    // ── Rate limit 체크 ──
+    const clientIp = extractClientIp(request.headers);
+
+    // 1) IP rate limit (서버 부하 방지) — 너무 자주면 명시적 429
+    const ipCheck = await checkAndRecordRateLimit(
+      "recover_ip",
+      clientIp,
+      IP_LIMIT_PER_HOUR,
+      WINDOW_MINUTES
+    );
+    if (!ipCheck.allowed) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "요청이 너무 많습니다. 잠시 후 다시 시도해주세요.",
+        },
+        { status: 429 }
+      );
+    }
+
+    // 2) 이메일 rate limit (수신자 inbox 보호) — 한도 초과 시 조용히 성공 응답
+    //    (실제로는 발송 안 함. 공격자에게 한도 정보 노출 X)
+    const emailCheck = await checkAndRecordRateLimit(
+      "recover_email",
+      rawEmail,
+      EMAIL_LIMIT_PER_HOUR,
+      WINDOW_MINUTES
+    );
+    if (!emailCheck.allowed) {
+      return NextResponse.json(genericResponse, { status: 200 });
+    }
+
+    // 1% 확률로 옛 rate limit 레코드 청소 (비동기, 실패 무시)
+    if (Math.random() < 0.01) {
+      cleanupOldRateLimits().catch(() => {});
+    }
 
     // 1. 고객 조회
     const { data: customer, error: lookupError } = await supabaseAdmin
