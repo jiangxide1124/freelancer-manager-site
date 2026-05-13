@@ -2,6 +2,17 @@
 
 import { useState, useEffect } from "react";
 
+/**
+ * 한국 전화번호 자동 하이픈 (3-4-4 패턴)
+ * 입력값에서 숫자만 추출 후 위치별로 "-" 삽입
+ */
+function formatKoreanPhone(input: string): string {
+  const digits = input.replace(/\D/g, "").slice(0, 11);
+  if (digits.length < 4) return digits;
+  if (digits.length < 8) return `${digits.slice(0, 3)}-${digits.slice(3)}`;
+  return `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`;
+}
+
 type Result =
   | { type: "success"; message: string }
   | { type: "warning"; message: string; licenseKey?: string }
@@ -283,11 +294,13 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
                       id="signup-phone"
                       type="tel"
                       autoComplete="tel"
-                      inputMode="tel"
+                      inputMode="numeric"
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={(e) =>
+                        setPhone(formatKoreanPhone(e.target.value))
+                      }
                       disabled={submitting}
-                      maxLength={30}
+                      maxLength={13}
                       placeholder="010-0000-0000"
                       className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none text-white placeholder-slate-600 disabled:opacity-50 transition-colors"
                     />

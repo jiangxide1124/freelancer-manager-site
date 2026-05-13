@@ -51,9 +51,9 @@ export default function SiteNav() {
           </a>
         </div>
 
-        {/* CTA */}
+        {/* CTA — #signup으로 점프해서 베타 신청 버튼 바로 보이게 */}
         <Link
-          href="/#pricing"
+          href="/#signup"
           className="shrink-0 inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-blue-900/30 transition-all whitespace-nowrap"
         >
           🎁 베타 무료

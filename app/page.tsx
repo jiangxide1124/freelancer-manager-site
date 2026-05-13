@@ -359,7 +359,10 @@ export default function Home() {
             <p className="text-slate-400">복잡한 플랜 비교 없이, 한 가지면 충분합니다</p>
           </div>
 
-          <div className="relative rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border-2 border-blue-700/40 p-8 md:p-10 shadow-2xl shadow-blue-900/30 overflow-hidden">
+          <div
+            id="signup"
+            className="relative rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border-2 border-blue-700/40 p-8 md:p-10 shadow-2xl shadow-blue-900/30 overflow-hidden scroll-mt-24"
+          >
             {/* 베타 뱃지 */}
             <div className="absolute top-6 right-6">
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-xs font-semibold text-emerald-300">
