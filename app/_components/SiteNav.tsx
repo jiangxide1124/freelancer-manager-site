@@ -5,7 +5,7 @@ const KAKAO_OPEN_CHAT = "https://open.kakao.com/o/g39v5pui";
 export default function SiteNav() {
   return (
     <nav className="sticky top-0 z-40 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/60">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3 sm:gap-4">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3 sm:gap-4">
         {/* Logo */}
         <Link
           href="/"

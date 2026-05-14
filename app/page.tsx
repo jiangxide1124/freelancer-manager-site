@@ -225,7 +225,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-slate-800">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-900/20 via-slate-950 to-slate-950 pointer-events-none" />
-        <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+        <div className="relative max-w-4xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-700/50 text-xs font-medium text-blue-300 mb-6">
               🎬 영상 콘텐츠 사업자를 위한 관리 프로그램
@@ -273,7 +273,7 @@ export default function Home() {
 
       {/* Target Persona */}
       <section id="who" className="border-t border-slate-800">
-        <div className="max-w-5xl mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto px-6 py-20">
           <div className="text-center mb-12">
             <div className="text-xs font-semibold tracking-wider text-emerald-400 uppercase mb-2">
               이런 분께 추천
@@ -302,7 +302,7 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section id="features" className="max-w-6xl mx-auto px-6 py-20">
+      <section id="features" className="max-w-4xl mx-auto px-6 py-20">
         <div className="text-center mb-14">
           <div className="text-xs font-semibold tracking-wider text-blue-400 uppercase mb-2">
             기능
@@ -328,7 +328,7 @@ export default function Home() {
 
       {/* How it works */}
       <section id="how" className="border-t border-slate-800 bg-slate-900/20">
-        <div className="max-w-5xl mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto px-6 py-20">
           <div className="text-center mb-14">
             <div className="text-xs font-semibold tracking-wider text-blue-400 uppercase mb-2">
               사용 흐름
@@ -402,7 +402,7 @@ export default function Home() {
 
       {/* Screenshots */}
       <section id="screenshots" className="border-t border-slate-800 bg-slate-900/20">
-        <div className="max-w-6xl mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto px-6 py-20">
           <div className="text-center mb-12">
             <div className="text-xs font-semibold tracking-wider text-sky-400 uppercase mb-2">
               화면 미리보기
@@ -437,7 +437,7 @@ export default function Home() {
 
       {/* Pricing */}
       <section id="pricing" className="border-t border-slate-800 bg-gradient-to-b from-slate-950 via-blue-950/10 to-slate-950">
-        <div className="max-w-2xl mx-auto px-6 py-12">
+        <div className="max-w-4xl mx-auto px-6 py-12">
           <div className="text-center mb-6">
             <div className="text-[11px] font-semibold tracking-wider text-blue-400 uppercase mb-1">
               요금제
@@ -646,7 +646,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-slate-800 py-10">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-6">
           {/* 메인 네비게이션 */}
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500 mb-8">
             <div>© {new Date().getFullYear()} 프리랜서 관리 · 영상 콘텐츠 사업자용 자동화</div>
