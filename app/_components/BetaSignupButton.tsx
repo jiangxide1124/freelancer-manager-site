@@ -239,6 +239,21 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
                   </p>
                 </div>
 
+                {/* ★ Gmail 권장 안내 — 네이버 등 일부 이메일은 스팸 차단 가능성 ★ */}
+                <div className="mb-4 rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2.5 text-xs text-amber-200 leading-relaxed">
+                  <div className="flex items-start gap-2">
+                    <span className="text-amber-400 shrink-0">⚠️</span>
+                    <div>
+                      <strong className="text-amber-100">Gmail 사용 권장</strong>
+                      <div className="mt-0.5 text-amber-200/90">
+                        네이버·다음 메일은 일부 발신 도메인을 차단하는 경우가 있어
+                        시리얼 키가 도착하지 않을 수 있습니다.
+                        가능하면 <strong className="text-amber-100">@gmail.com</strong> 주소로 신청해주세요.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label
@@ -246,6 +261,7 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
                       className="block text-xs font-medium text-slate-400 mb-1.5"
                     >
                       이메일 <span className="text-rose-400">*</span>
+                      <span className="ml-1 text-slate-500 font-normal">— @gmail.com 권장</span>
                     </label>
                     <input
                       id="signup-email"
@@ -256,9 +272,20 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       disabled={submitting}
-                      placeholder="your@email.com"
+                      placeholder="your-name@gmail.com"
                       className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none text-white placeholder-slate-600 disabled:opacity-50 transition-colors"
                     />
+                    {/* 비-Gmail 입력 시 인라인 경고 */}
+                    {email.includes("@") && !email.toLowerCase().endsWith("@gmail.com") && (
+                      <div className="mt-1.5 text-[11px] text-amber-300 flex items-start gap-1.5 leading-relaxed">
+                        <span>💡</span>
+                        <span>
+                          {email.toLowerCase().endsWith("@naver.com") || email.toLowerCase().endsWith("@daum.net") || email.toLowerCase().endsWith("@hanmail.net")
+                            ? "네이버/다음 메일은 시리얼 키가 도착하지 않을 가능성이 높습니다. Gmail 주소로 다시 신청해주세요."
+                            : "Gmail이 아닌 주소는 메일이 도착하지 않을 수 있습니다. 가능하면 @gmail.com 주소로 신청해주세요."}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   <div>
