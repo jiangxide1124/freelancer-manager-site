@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 
 const URLS = {
   mac: 'https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg',
-  win: 'https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client.exe',
+  // Windows는 NSIS Installer (Setup.exe) — 옛 버전 자동 제거 + 바탕화면/시작 메뉴 등록.
+  win: 'https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe',
 };
 
 type OS = 'mac' | 'win' | 'unknown';
@@ -73,8 +74,8 @@ export default function DownloadButtons() {
           )}
           <span className="text-2xl">⊞</span>
           <div className="text-left">
-            <div className={`text-xs ${isWin ? 'text-slate-500' : 'text-slate-400'}`}>Windows 10 / 11 (x64)</div>
-            <div className="text-base">⬇ EXE 다운로드</div>
+            <div className={`text-xs ${isWin ? 'text-slate-500' : 'text-slate-400'}`}>Windows 10 / 11</div>
+            <div className="text-base">⬇ Installer (.exe)</div>
           </div>
         </a>
       </div>
@@ -82,11 +83,14 @@ export default function DownloadButtons() {
       {/* Windows 사용자에게만 표시되는 SmartScreen 안내 */}
       {isWin && (
         <div className="mt-2 max-w-xl text-xs text-amber-200 bg-amber-900/30 border border-amber-700/50 rounded-md px-4 py-3 leading-relaxed">
-          <p className="font-semibold mb-1">⚠️ 처음 실행 시 Windows 경고가 나오면</p>
+          <p className="font-semibold mb-1">⚠️ 처음 설치 시 Windows 경고가 나오면</p>
           <p>
             <strong>Microsoft Defender SmartScreen</strong>이 "확인되지 않은 앱"이라며 차단할 수 있어요.
             왼쪽 위 <strong>"추가 정보"</strong>를 클릭한 다음 아래에 나오는{' '}
             <strong>"실행"</strong> 버튼을 누르면 정상 작동합니다. (한 번만 허용하면 그 다음부터는 자동)
+          </p>
+          <p className="mt-1.5 text-amber-300/80">
+            💡 Installer 형식이라 <strong>옛 버전이 있으면 자동으로 제거</strong>되고 새 버전이 설치됩니다. 바탕화면 바로가기도 자동 갱신.
           </p>
         </div>
       )}

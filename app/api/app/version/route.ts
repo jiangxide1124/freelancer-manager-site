@@ -26,10 +26,12 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
     },
     win: {
+      // NSIS Installer (Setup.exe) — 옛 버전 자동 제거 + 바탕화면/시작 메뉴 자동 등록.
+      // Portable EXE는 fallback으로 유지 (-Win-Admin.exe, -Win-Client.exe).
       admin:
-        "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Admin.exe",
+        "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Admin-Setup.exe",
       client:
-        "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client.exe",
+        "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
   releaseNotes:
