@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BetaSignupButton from "./_components/BetaSignupButton";
 import LicenseRecoveryButton from "./_components/LicenseRecoveryButton";
+import DownloadButtons from "./_components/DownloadButtons";
 
 const FEATURES = [
   {
@@ -538,29 +539,7 @@ export default function Home() {
           <p className="text-slate-400 mb-10">
             다운로드 → 설치 → 시리얼 키 입력. 5분 안에 첫 의뢰 등록 가능.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg bg-slate-100 hover:bg-white text-slate-900 font-semibold transition-colors min-w-[240px]"
-            >
-              <span className="text-2xl"></span>
-              <div className="text-left">
-                <div className="text-xs text-slate-500">macOS (Apple Silicon)</div>
-                <div className="text-base">⬇ 바로 다운로드 (208MB)</div>
-              </div>
-            </a>
-            <span
-              aria-disabled="true"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg bg-slate-800/60 text-slate-400 font-semibold min-w-[240px] border border-slate-700 cursor-not-allowed"
-              title="Windows 빌드 준비 중입니다"
-            >
-              <span className="text-2xl">⊞</span>
-              <div className="text-left">
-                <div className="text-xs text-slate-500">Windows 10 / 11 (x64)</div>
-                <div className="text-base">준비 중</div>
-              </div>
-            </span>
-          </div>
+          <DownloadButtons />
           <p className="mt-8 text-xs text-slate-500">
             ※ 현재 베타 운영 중. 다운로드 후 시리얼 키 입력 화면이 나오면{' '}
             <a
