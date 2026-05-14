@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.6",
+  latest: "0.2.7",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "라이선스 활성화 직후 발생하던 '읽기 전용' 오류 수정 — 자동 스케줄러가 라이선스 검증 완료 후 시작되도록 변경 + 에러 메시지 명확화 (키 없음 / 검증 실패 / 만료 구분)",
+  releaseNotes: "채널 삭제 시 영상이 자동으로 같은 플랫폼 기본 채널로 이관 — '채널 미지정' 잔존물 제거. 과거 삭제로 생긴 orphan 영상도 앱 시작 시 자동 청소.",
   publishedAt: "2026-05-15",
 };
 
