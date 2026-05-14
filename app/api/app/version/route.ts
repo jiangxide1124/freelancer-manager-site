@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.4",
+  latest: "0.2.5",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -35,8 +35,8 @@ const VERSION_INFO = {
     },
   },
   releaseNotes:
-    "Windows 베타 지원 + 채널별 수익화 관리(시작일·단가) + 정산 일괄 이메일/PDF 보관 + 다크모드 시인성 개선",
-  publishedAt: "2026-05-14",
+    "대시보드 차트 17종 확장 (히스토그램·산점도) · 플랫폼별 자동 갱신 토글 (YT/TT/IG 개별 on·off) · TikTok 채널명·팔로워 자동 표시 + 스코프 경고 배너 · 인앱 오류 로그 뷰어 (Cmd+Opt+L) · 업데이트 팝업 (진행률·변경사항) · 검색창 가시성 개선 · 다크모드 시인성 보강 · DMG 다이어트로 다운로드 95% 단축 · Windows NSIS Installer 정상화 · Gmail 권장 안내",
+  publishedAt: "2026-05-15",
 };
 
 export async function GET() {
