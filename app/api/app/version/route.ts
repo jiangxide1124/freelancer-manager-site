@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.8",
+  latest: "0.2.9",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "월 단위 델타 조회수 계산 — '이번 달에 실제 발생한 조회수'를 정확히 표시 (이전: 그 달 업로드 영상의 누적 조회수). 월 선택 시 그 달에만 추가된 조회수×CPV로 예상 실수익 계산. 과거 월(스냅샷 없음)은 0으로 표시.",
+  releaseNotes: "옛 영상에 대한 월 델타 과대계상 패치 — '월초 직전 스냅샷이 없는 옛 영상'은 0으로 보수적 처리. 5월에 새로 올린 영상만 정확히 카운트. 옛 영상 데이터는 YouTube Analytics API 통합 후 정확해질 예정.",
   publishedAt: "2026-05-15",
 };
 
