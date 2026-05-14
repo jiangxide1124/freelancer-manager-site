@@ -213,10 +213,25 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
                     </button>
                   </div>
                 )}
-                <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-400 text-left mb-4 leading-relaxed">
-                  <p className="font-medium text-slate-300 mb-1">⚠️ 안내</p>
-                  <p>위 키를 안전한 곳(메모장·1Password 등)에 복사해두세요. 이메일이 안 와도 위 키로 활성화 가능합니다.</p>
+                <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-400 text-left mb-3 leading-relaxed">
+                  <p className="font-medium text-slate-300 mb-1.5">⚠️ 키를 꼭 복사해주세요</p>
+                  <p>위 키를 <strong className="text-slate-200">메모장·1Password·카카오톡 나에게</strong> 등 안전한 곳에 복사해두세요. 이메일이 안 와도 위 키 그대로 프로그램에서 활성화 가능합니다.</p>
                 </div>
+
+                {/* 카톡으로 키 받기 옵션 — 발송 실패 시 fallback */}
+                <div className="p-3 rounded-lg bg-blue-900/15 border border-blue-700/40 text-xs text-slate-300 text-left mb-4 leading-relaxed">
+                  <p className="font-medium text-blue-200 mb-1.5">💬 키를 잃어버릴까 걱정되면</p>
+                  <p className="mb-2 text-slate-400">카카오톡 오픈채팅에서 키 사진/캡처를 보내주시면 운영자가 직접 메모해드립니다.</p>
+                  <a
+                    href={kakaoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-slate-900 text-xs font-semibold transition-colors"
+                  >
+                    💬 카카오톡 오픈채팅 열기
+                  </a>
+                </div>
+
                 <button
                   type="button"
                   onClick={close}

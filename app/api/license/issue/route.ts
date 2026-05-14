@@ -214,6 +214,24 @@ export async function POST(request: NextRequest) {
 
     if (!emailResult.success) {
       console.error("Email send failed:", emailResult.error);
+
+      // 이메일 발송 실패 정보를 license_events에 기록 — Resend 대시보드와 별개로 추적용
+      supabaseAdmin
+        .from("license_events")
+        .insert({
+          license_id: licenseId,
+          event_type: "email_failed",
+          ip_address:
+            request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? null,
+          user_agent: request.headers.get("user-agent") ?? null,
+          metadata: {
+            email: rawEmail,
+            error: emailResult.error,
+            domain: rawEmail.split("@")[1] ?? null,
+          },
+        })
+        .then(() => {}, () => {});
+
       // 이메일 실패해도 키는 발급됨 — 사용자에게 응답에 키 포함
       return NextResponse.json(
         {
