@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.7",
+  latest: "0.2.8",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "채널 삭제 시 영상이 자동으로 같은 플랫폼 기본 채널로 이관 — '채널 미지정' 잔존물 제거. 과거 삭제로 생긴 orphan 영상도 앱 시작 시 자동 청소.",
+  releaseNotes: "월 단위 델타 조회수 계산 — '이번 달에 실제 발생한 조회수'를 정확히 표시 (이전: 그 달 업로드 영상의 누적 조회수). 월 선택 시 그 달에만 추가된 조회수×CPV로 예상 실수익 계산. 과거 월(스냅샷 없음)은 0으로 표시.",
   publishedAt: "2026-05-15",
 };
 
