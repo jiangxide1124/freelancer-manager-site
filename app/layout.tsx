@@ -5,9 +5,9 @@ import SiteNav from "./_components/SiteNav";
 
 const SITE_URL = "https://freelancer-manager-site.vercel.app";
 const SITE_NAME = "프리랜서 관리";
-const SITE_TITLE = "프리랜서 관리 — 영상편집 의뢰·정산 자동화";
+const SITE_TITLE = "프리랜서 관리 — 의뢰 관리·정산 자동화";
 const SITE_DESC =
-  "1인 미디어·콘텐츠 사업자를 위한 데스크톱 프로그램. 작업자 의뢰, 영상 조회수 자동 추적, 정산서·급여명세서 자동 생성까지 — 엑셀에서 손으로 하던 모든 일을 한 프로그램에서.";
+  "1인 미디어·콘텐츠 사업자를 위한 데스크톱 프로그램. 작업자 의뢰 관리, 영상 조회수 자동 추적, 정산서·급여명세서 자동 생성까지 — 엑셀에서 손으로 하던 모든 일을 한 프로그램에서.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: SITE_DESC,
   keywords: [
     "프리랜서 관리",
-    "영상편집 정산",
+    "의뢰 관리",
     "유튜브 프리랜서",
     "1인 미디어",
     "자동 정산",

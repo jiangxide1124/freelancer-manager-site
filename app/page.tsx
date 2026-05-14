@@ -238,7 +238,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-slate-300 leading-relaxed mb-8 max-w-2xl">
-              영상편집 의뢰부터 조회수 추적, 작업자 정산까지.
+              영상 의뢰부터 조회수 추적, 작업자 정산까지.
               <br />
               엑셀에서 손으로 하던 모든 일을 한 프로그램에서.
             </p>

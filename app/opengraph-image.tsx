@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 // 카톡·X·페이스북·디스코드 등에서 사이트 링크 공유 시 표시되는 미리보기 이미지
-export const alt = "프리랜서 관리 — 영상편집 의뢰·정산 자동화";
+export const alt = "프리랜서 관리 — 의뢰 관리·정산 자동화";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
