@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.10",
+  latest: "0.2.11",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "채널 삭제 시 영상 처리 방식 선택 가능 — '영상도 함께 삭제' 옵션 추가 (부채널 잘못 등록 시 데이터 정리). 기존 '이관' 옵션도 유지. 사용자가 선택.",
+  releaseNotes: "YouTube Analytics API 통합 — 일별 조회수 데이터 backfill로 정확한 월별 수익 계산 가능. 설정 페이지에서 OAuth 연결 + Backfill 실행 (1년치). 매일 자동으로 어제 데이터 가져옴. 부채널 등록 후 삭제 시 영상도 함께 삭제하는 옵션도 추가됨.",
   publishedAt: "2026-05-15",
 };
 
