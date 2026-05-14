@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.9",
+  latest: "0.2.10",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "옛 영상에 대한 월 델타 과대계상 패치 — '월초 직전 스냅샷이 없는 옛 영상'은 0으로 보수적 처리. 5월에 새로 올린 영상만 정확히 카운트. 옛 영상 데이터는 YouTube Analytics API 통합 후 정확해질 예정.",
+  releaseNotes: "채널 삭제 시 영상 처리 방식 선택 가능 — '영상도 함께 삭제' 옵션 추가 (부채널 잘못 등록 시 데이터 정리). 기존 '이관' 옵션도 유지. 사용자가 선택.",
   publishedAt: "2026-05-15",
 };
 
