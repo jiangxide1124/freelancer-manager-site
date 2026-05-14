@@ -14,8 +14,7 @@ function formatKoreanPhone(input: string): string {
 }
 
 type Result =
-  | { type: "success"; message: string }
-  | { type: "warning"; message: string; licenseKey?: string }
+  | { type: "issued"; licenseKey: string }   // 키 발급 성공 — 화면에 직접 표시
   | { type: "error"; message: string }
   | null;
 
@@ -85,24 +84,11 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
 
       const data = await response.json().catch(() => null);
 
-      if (response.ok && data?.success) {
-        // 이메일 발송 실패해도 시리얼 키는 발급된 경우
-        if (data.email_sent === false && data.license_key) {
-          setResult({
-            type: "warning",
-            message:
-              data.warning ||
-              "이메일 발송에 실패했지만 시리얼 키는 정상 발급됐습니다. 아래 키를 복사해 안전한 곳에 보관해주세요.",
-            licenseKey: data.license_key,
-          });
-        } else {
-          setResult({
-            type: "success",
-            message:
-              data.message ||
-              "시리얼 키를 이메일로 발송했습니다. 메일함을 확인해주세요.",
-          });
-        }
+      if (response.ok && data?.success && data?.license_key) {
+        setResult({
+          type: "issued",
+          licenseKey: data.license_key,
+        });
         setEmail("");
         setName("");
         setPhone("");
@@ -158,70 +144,66 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
               ✕
             </button>
 
-            {result?.type === "success" ? (
-              <div className="text-center py-4">
-                <div className="text-5xl mb-4">📬</div>
-                <h3 className="text-xl font-bold text-emerald-300 mb-3">
-                  발송 완료!
-                </h3>
-                <p className="text-sm text-slate-300 leading-relaxed mb-6">
-                  {result.message}
-                </p>
-                <div className="p-4 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-400 text-left mb-6 leading-relaxed">
-                  <p className="font-medium text-slate-300 mb-1">📩 다음 단계</p>
-                  <ol className="list-decimal ml-4 space-y-1">
-                    <li>이메일 메일함 확인 (스팸함도 한 번 보세요)</li>
-                    <li>받은 시리얼 키 복사</li>
-                    <li>프로그램 다운로드 후 키 입력</li>
-                  </ol>
-                </div>
-                <button
-                  type="button"
-                  onClick={close}
-                  className="px-6 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors"
-                >
-                  확인
-                </button>
-              </div>
-            ) : result?.type === "warning" ? (
-              <div className="text-center py-2">
-                <div className="text-5xl mb-3">⚠️</div>
-                <h3 className="text-xl font-bold text-amber-300 mb-3">
-                  키는 발급됐지만 이메일 발송 실패
-                </h3>
-                <p className="text-sm text-slate-300 leading-relaxed mb-4">
-                  {result.message}
-                </p>
-                {result.licenseKey && (
-                  <div className="p-4 rounded-xl bg-slate-950 border-2 border-amber-700/50 mb-4">
-                    <p className="text-xs text-amber-400 font-semibold uppercase tracking-wider mb-2">
-                      Your License Key
-                    </p>
-                    <p className="font-mono text-lg font-bold text-emerald-300 break-all select-all leading-relaxed">
-                      {result.licenseKey}
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (result.licenseKey) {
-                          navigator.clipboard.writeText(result.licenseKey).catch(() => {});
-                        }
-                      }}
-                      className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-xs font-medium transition-colors"
-                    >
-                      📋 키 복사
-                    </button>
-                  </div>
-                )}
-                <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-400 text-left mb-3 leading-relaxed">
-                  <p className="font-medium text-slate-300 mb-1.5">⚠️ 키를 꼭 복사해주세요</p>
-                  <p>위 키를 <strong className="text-slate-200">메모장·1Password·카카오톡 나에게</strong> 등 안전한 곳에 복사해두세요. 이메일이 안 와도 위 키 그대로 프로그램에서 활성화 가능합니다.</p>
+            {result?.type === "issued" ? (
+              <div className="py-2">
+                <div className="text-center mb-4">
+                  <div className="text-5xl mb-3">🎉</div>
+                  <h3 className="text-xl font-bold text-emerald-300 mb-2">
+                    시리얼 키 발급 완료!
+                  </h3>
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    아래 키를 <strong className="text-amber-300">꼭 복사해서</strong> 안전한 곳에 보관해주세요.
+                  </p>
                 </div>
 
-                {/* 카톡으로 키 받기 옵션 — 발송 실패 시 fallback */}
+                {/* 라이선스 키 박스 — 강조 */}
+                <div className="p-4 rounded-xl bg-slate-950 border-2 border-emerald-700/50 mb-4 text-center">
+                  <p className="text-xs text-emerald-400 font-semibold uppercase tracking-wider mb-2">
+                    Your License Key
+                  </p>
+                  <p className="font-mono text-lg font-bold text-emerald-300 break-all select-all leading-relaxed mb-3">
+                    {result.licenseKey}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigator.clipboard.writeText(result.licenseKey).then(
+                        () => alert("✅ 클립보드에 복사됐습니다.\n메모장이나 안전한 곳에 붙여넣어 보관해주세요."),
+                        () => alert("복사 실패 — 직접 선택해서 복사해주세요.")
+                      );
+                    }}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold transition-colors"
+                  >
+                    📋 키 복사하기
+                  </button>
+                </div>
+
+                {/* 강력한 보관 안내 */}
+                <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/40 text-xs text-amber-100 text-left mb-3 leading-relaxed">
+                  <p className="font-bold text-amber-200 mb-1.5">⚠️ 반드시 보관 — 분실 시 재발급 어려움</p>
+                  <p className="mb-2 text-amber-100/90">위 키를 다음 중 한 곳 이상에 <strong>꼭 복사</strong>해두세요:</p>
+                  <ul className="ml-4 space-y-0.5 list-disc text-amber-100/80">
+                    <li>메모장 / 텍스트 파일</li>
+                    <li>1Password · Bitwarden 등 비밀번호 관리자</li>
+                    <li>카카오톡 "나에게 보내기"</li>
+                    <li>휴대폰 메모 앱</li>
+                  </ul>
+                </div>
+
+                {/* 다음 단계 */}
+                <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-300 text-left mb-4 leading-relaxed">
+                  <p className="font-medium text-slate-200 mb-1.5">📥 다음 단계</p>
+                  <ol className="list-decimal ml-4 space-y-0.5 text-slate-400">
+                    <li>위 키 복사 → 안전한 곳 보관</li>
+                    <li>프로그램 다운로드 (Mac DMG 또는 Windows EXE)</li>
+                    <li>실행 → 시리얼 키 입력 화면에 붙여넣기 → 완료</li>
+                  </ol>
+                </div>
+
+                {/* 카톡 백업 안내 */}
                 <div className="p-3 rounded-lg bg-blue-900/15 border border-blue-700/40 text-xs text-slate-300 text-left mb-4 leading-relaxed">
-                  <p className="font-medium text-blue-200 mb-1.5">💬 키를 잃어버릴까 걱정되면</p>
-                  <p className="mb-2 text-slate-400">카카오톡 오픈채팅에서 키 사진/캡처를 보내주시면 운영자가 직접 메모해드립니다.</p>
+                  <p className="font-medium text-blue-200 mb-1.5">💬 키를 잃어버리면</p>
+                  <p className="mb-2 text-slate-400">사이트 메인의 "🔍 시리얼 키를 잊으셨나요?" 버튼으로 다시 확인하거나, 카카오톡 오픈채팅으로 문의해주세요.</p>
                   <a
                     href={kakaoUrl}
                     target="_blank"
@@ -235,9 +217,9 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
                 <button
                   type="button"
                   onClick={close}
-                  className="px-6 py-2.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-semibold text-sm transition-colors"
+                  className="w-full px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors"
                 >
-                  확인 (키 복사했음)
+                  ✅ 키를 복사했습니다 — 닫기
                 </button>
               </div>
             ) : (
@@ -250,23 +232,8 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
                     베타 무료 신청
                   </h3>
                   <p className="text-sm text-slate-400 leading-relaxed">
-                    이메일을 입력하시면 시리얼 키를 즉시 발송해드립니다.
+                    이메일을 입력하시면 <strong className="text-emerald-300">시리얼 키가 즉시 화면에 표시</strong>됩니다. 키를 복사해서 안전한 곳에 보관해주세요.
                   </p>
-                </div>
-
-                {/* ★ Gmail 권장 안내 — 네이버 등 일부 이메일은 스팸 차단 가능성 ★ */}
-                <div className="mb-4 rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2.5 text-xs text-amber-200 leading-relaxed">
-                  <div className="flex items-start gap-2">
-                    <span className="text-amber-400 shrink-0">⚠️</span>
-                    <div>
-                      <strong className="text-amber-100">Gmail 사용 권장</strong>
-                      <div className="mt-0.5 text-amber-200/90">
-                        네이버·다음 메일은 일부 발신 도메인을 차단하는 경우가 있어
-                        시리얼 키가 도착하지 않을 수 있습니다.
-                        가능하면 <strong className="text-amber-100">@gmail.com</strong> 주소로 신청해주세요.
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -276,7 +243,7 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
                       className="block text-xs font-medium text-slate-400 mb-1.5"
                     >
                       이메일 <span className="text-rose-400">*</span>
-                      <span className="ml-1 text-slate-500 font-normal">— @gmail.com 권장</span>
+                      <span className="ml-1 text-slate-500 font-normal">— 본인 식별용</span>
                     </label>
                     <input
                       id="signup-email"
@@ -287,20 +254,9 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       disabled={submitting}
-                      placeholder="your-name@gmail.com"
+                      placeholder="your-name@example.com"
                       className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none text-white placeholder-slate-600 disabled:opacity-50 transition-colors"
                     />
-                    {/* 비-Gmail 입력 시 인라인 경고 */}
-                    {email.includes("@") && !email.toLowerCase().endsWith("@gmail.com") && (
-                      <div className="mt-1.5 text-[11px] text-amber-300 flex items-start gap-1.5 leading-relaxed">
-                        <span>💡</span>
-                        <span>
-                          {email.toLowerCase().endsWith("@naver.com") || email.toLowerCase().endsWith("@daum.net") || email.toLowerCase().endsWith("@hanmail.net")
-                            ? "네이버/다음 메일은 시리얼 키가 도착하지 않을 가능성이 높습니다. Gmail 주소로 다시 신청해주세요."
-                            : "Gmail이 아닌 주소는 메일이 도착하지 않을 수 있습니다. 가능하면 @gmail.com 주소로 신청해주세요."}
-                        </span>
-                      </div>
-                    )}
                   </div>
 
                   <div>

@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import { generateLicenseKey } from "@/lib/license";
-import { sendLicenseKeyEmail } from "@/lib/resend";
 import {
   checkAndRecordRateLimit,
   extractClientIp,
@@ -205,51 +204,15 @@ export async function POST(request: NextRequest) {
       })
       .then(() => {}, () => {});
 
-    // 6. 이메일 발송
-    const emailResult = await sendLicenseKeyEmail({
-      to: rawEmail,
-      name,
-      licenseKey,
-    });
-
-    if (!emailResult.success) {
-      console.error("Email send failed:", emailResult.error);
-
-      // 이메일 발송 실패 정보를 license_events에 기록 — Resend 대시보드와 별개로 추적용
-      supabaseAdmin
-        .from("license_events")
-        .insert({
-          license_id: licenseId,
-          event_type: "email_failed",
-          ip_address:
-            request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? null,
-          user_agent: request.headers.get("user-agent") ?? null,
-          metadata: {
-            email: rawEmail,
-            error: emailResult.error,
-            domain: rawEmail.split("@")[1] ?? null,
-          },
-        })
-        .then(() => {}, () => {});
-
-      // 이메일 실패해도 키는 발급됨 — 사용자에게 응답에 키 포함
-      return NextResponse.json(
-        {
-          success: true,
-          license_key: licenseKey,
-          email_sent: false,
-          warning:
-            "이메일 발송에 실패했습니다. 아래 시리얼 키를 직접 보관해주세요.",
-        },
-        { status: 200 }
-      );
-    }
-
+    // 6. 키를 화면에 직접 표시 (이메일 발송 안 함)
+    //    근거: Resend 무료 + onboarding@resend.dev 도메인은 본인 이메일에만 발송 가능.
+    //    도메인 등록 + DNS 인증(SPF/DKIM/DMARC) 완료되면 다시 이메일 발송 활성화.
     return NextResponse.json(
       {
         success: true,
-        email_sent: true,
-        message: "이메일로 시리얼 키를 발송했습니다. 메일함을 확인해주세요.",
+        license_key: licenseKey,
+        email_sent: false,
+        message: "시리얼 키가 발급되었습니다. 화면에 표시된 키를 꼭 복사해서 안전한 곳에 보관해주세요.",
       },
       { status: 200 }
     );

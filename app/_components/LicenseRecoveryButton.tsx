@@ -2,10 +2,18 @@
 
 import { useState, useEffect } from "react";
 
+interface RecoveredLicense {
+  key: string;
+  status: string;
+  expiresAt: string | null;
+}
+
 type Result =
-  | { type: "success"; message: string }
+  | { type: "found"; licenses: RecoveredLicense[] }
   | { type: "error"; message: string }
   | null;
+
+const KAKAO_OPEN_CHAT = "https://open.kakao.com/o/g39v5pui";
 
 export default function LicenseRecoveryButton({
   className = "",
@@ -43,6 +51,22 @@ export default function LicenseRecoveryButton({
     setResult(null);
   };
 
+  function fmtExpiry(iso: string | null): string {
+    if (!iso) return "무제한";
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return iso;
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  }
+
+  async function copyKey(key: string) {
+    try {
+      await navigator.clipboard.writeText(key);
+      alert("✅ 클립보드에 복사됐습니다.\n메모장이나 안전한 곳에 붙여넣어 보관해주세요.");
+    } catch {
+      alert("복사 실패 — 직접 선택해서 복사해주세요.");
+    }
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (submitting) return;
@@ -57,14 +81,11 @@ export default function LicenseRecoveryButton({
       });
       const data = await response.json().catch(() => null);
 
-      if (response.ok && data?.success) {
+      if (response.ok && data?.success && Array.isArray(data.licenses)) {
         setResult({
-          type: "success",
-          message:
-            data.message ||
-            "발급된 시리얼 키가 있다면 이메일로 다시 발송했습니다.",
+          type: "found",
+          licenses: data.licenses as RecoveredLicense[],
         });
-        setEmail("");
       } else {
         setResult({
           type: "error",
@@ -120,29 +141,70 @@ export default function LicenseRecoveryButton({
               ✕
             </button>
 
-            {result?.type === "success" ? (
-              <div className="text-center py-4">
-                <div className="text-5xl mb-4">📬</div>
-                <h3 className="text-xl font-bold text-emerald-300 mb-3">
-                  메일을 보냈습니다
-                </h3>
-                <p className="text-sm text-slate-300 leading-relaxed mb-6">
-                  {result.message}
-                </p>
-                <div className="p-4 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-400 text-left mb-6 leading-relaxed">
-                  <p className="font-medium text-slate-300 mb-1">📩 다음 단계</p>
-                  <ol className="list-decimal ml-4 space-y-1">
-                    <li>입력하신 이메일 메일함 확인</li>
-                    <li>스팸함도 한 번 보세요</li>
-                    <li>도착한 메일에서 시리얼 키 복사</li>
-                  </ol>
+            {result?.type === "found" ? (
+              <div className="py-2">
+                <div className="text-center mb-4">
+                  <div className="text-4xl mb-2">🔓</div>
+                  <h3 className="text-xl font-bold text-emerald-300 mb-2">
+                    {result.licenses.length}개의 키를 찾았습니다
+                  </h3>
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    아래 키를 <strong className="text-amber-300">복사해서</strong> 안전한 곳에 보관해주세요.
+                  </p>
                 </div>
+
+                <div className="space-y-2.5 mb-4 max-h-[400px] overflow-y-auto">
+                  {result.licenses.map((lic, idx) => (
+                    <div
+                      key={`${lic.key}-${idx}`}
+                      className="p-3 rounded-xl bg-slate-950 border-2 border-emerald-700/40"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">
+                          License Key {result.licenses.length > 1 ? `#${idx + 1}` : ""}
+                        </span>
+                        <span
+                          className={`text-[10px] px-2 py-0.5 rounded-full font-semibold ${
+                            lic.status === "active"
+                              ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/40"
+                              : "bg-amber-500/15 text-amber-300 border border-amber-500/40"
+                          }`}
+                        >
+                          {lic.status === "active" ? "활성" : lic.status}
+                        </span>
+                      </div>
+                      <p className="font-mono text-sm font-bold text-emerald-300 break-all select-all leading-relaxed mb-2">
+                        {lic.key}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] text-slate-500">
+                          만료: {fmtExpiry(lic.expiresAt)}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => copyKey(lic.key)}
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold transition-colors"
+                        >
+                          📋 복사
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/40 text-xs text-amber-100 text-left mb-4 leading-relaxed">
+                  <p className="font-bold text-amber-200 mb-1">⚠️ 이번엔 꼭 보관해주세요</p>
+                  <p className="text-amber-100/90">
+                    메모장 · 1Password · 카카오톡 "나에게 보내기" 등 안전한 곳에 복사해두시면 다음에 잊을 일이 없습니다.
+                  </p>
+                </div>
+
                 <button
                   type="button"
                   onClick={close}
-                  className="px-6 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors"
+                  className="w-full px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors"
                 >
-                  확인
+                  ✅ 키를 복사했습니다 — 닫기
                 </button>
               </div>
             ) : (
@@ -155,8 +217,8 @@ export default function LicenseRecoveryButton({
                     키를 잊으셨나요?
                   </h3>
                   <p className="text-sm text-slate-400 leading-relaxed">
-                    신청 시 사용한 이메일을 입력하시면 발급된 시리얼 키를 다시
-                    보내드립니다.
+                    신청 시 사용한 이메일을 입력하시면{" "}
+                    <strong className="text-purple-300">발급된 키를 화면에 바로 표시</strong>해드립니다.
                   </p>
                 </div>
 
@@ -200,16 +262,21 @@ export default function LicenseRecoveryButton({
                         조회 중...
                       </span>
                     ) : (
-                      "🔍 키 다시 보내기"
+                      "🔍 시리얼 키 찾기"
                     )}
                   </button>
 
-                  <div className="p-3 rounded-lg bg-slate-900/40 border border-slate-800 text-xs text-slate-500 leading-relaxed">
-                    <p className="mb-1 text-slate-400 font-medium">🔒 보안 안내</p>
-                    <p>
-                      이메일이 등록되지 않았어도 같은 응답이 표시됩니다.
-                      이는 이메일 노출을 방지하기 위한 정책입니다.
-                    </p>
+                  <div className="p-3 rounded-lg bg-slate-900/40 border border-slate-800 text-xs text-slate-400 leading-relaxed">
+                    <p className="mb-1 text-slate-300 font-medium">💬 이메일이 기억 안 나거나 조회 안 되면</p>
+                    <p className="mb-2">카카오톡 오픈채팅으로 문의해주세요. 본인 확인 후 키를 알려드립니다.</p>
+                    <a
+                      href={KAKAO_OPEN_CHAT}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-slate-900 text-xs font-semibold transition-colors"
+                    >
+                      💬 카카오톡 오픈채팅 열기
+                    </a>
                   </div>
                 </form>
               </>
