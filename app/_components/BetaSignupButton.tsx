@@ -131,7 +131,7 @@ export default function BetaSignupButton({ kakaoUrl }: { kakaoUrl: string }) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="block w-full text-center px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold text-lg transition-all shadow-lg shadow-blue-900/50 cursor-pointer"
+        className="block w-full text-center px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold text-base transition-all shadow-lg shadow-blue-900/50 cursor-pointer"
       >
         🎁 베타 무료로 시작하기
       </button>

@@ -437,54 +437,54 @@ export default function Home() {
 
       {/* Pricing */}
       <section id="pricing" className="border-t border-slate-800 bg-gradient-to-b from-slate-950 via-blue-950/10 to-slate-950">
-        <div className="max-w-3xl mx-auto px-6 py-20">
-          <div className="text-center mb-12">
-            <div className="text-xs font-semibold tracking-wider text-blue-400 uppercase mb-2">
+        <div className="max-w-2xl mx-auto px-6 py-12">
+          <div className="text-center mb-6">
+            <div className="text-[11px] font-semibold tracking-wider text-blue-400 uppercase mb-1">
               요금제
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-1.5">
               간단한 요금, 모든 기능 포함
             </h2>
-            <p className="text-slate-400">복잡한 플랜 비교 없이, 한 가지면 충분합니다</p>
+            <p className="text-sm text-slate-400">복잡한 플랜 비교 없이, 한 가지면 충분합니다</p>
           </div>
 
           <div
             id="signup"
-            className="relative rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border-2 border-blue-700/40 p-8 md:p-10 shadow-2xl shadow-blue-900/30 overflow-hidden scroll-mt-24"
+            className="relative rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border-2 border-blue-700/40 p-5 md:p-6 shadow-2xl shadow-blue-900/30 overflow-hidden scroll-mt-24"
           >
             {/* 베타 뱃지 */}
-            <div className="absolute top-6 right-6">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-xs font-semibold text-emerald-300">
+            <div className="absolute top-4 right-4">
+              <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-[10px] font-semibold text-emerald-300">
                 🎁 베타 진행 중
               </div>
             </div>
 
-            <h3 className="text-2xl font-bold mb-2">프리랜서 관리 Pro</h3>
-            <p className="text-sm text-slate-400 mb-8">
-              영상 콘텐츠 사업자를 위한 올인원 자동화
-            </p>
-
-            {/* 가격 영역 */}
-            <div className="mb-8">
-              <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
-                  무료
-                </span>
-                <span className="text-lg text-slate-400">/ 베타 기간</span>
-              </div>
-              <div className="text-sm text-slate-500">
-                정식 출시 시 가격을 별도 안내드립니다
-              </div>
+            {/* 헤더 + 가격 한 줄로 정리 */}
+            <div className="mb-4">
+              <h3 className="text-lg font-bold mb-0.5">프리랜서 관리 Pro</h3>
+              <p className="text-xs text-slate-400">
+                영상 콘텐츠 사업자를 위한 올인원 자동화
+              </p>
             </div>
 
-            {/* 혜택 리스트 */}
-            <ul className="space-y-3 mb-8">
+            <div className="mb-5 flex items-baseline gap-2">
+              <span className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+                무료
+              </span>
+              <span className="text-sm text-slate-400">/ 베타 기간</span>
+              <span className="ml-auto text-[10px] text-slate-500">
+                정식 출시 시 가격 별도 안내
+              </span>
+            </div>
+
+            {/* 혜택 리스트 — 2열 컴팩트 */}
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 mb-5">
               {[
                 "무제한 작업자 등록",
                 "무제한 의뢰·영상 관리",
-                "조회수 자동 추적 (YouTube·TikTok·Instagram)",
-                "정산·급여명세서 PDF 자동 생성",
-                "주간/월간 자동 보고서 이메일 발송",
+                "조회수 자동 추적 (YT·TT·IG)",
+                "정산·급여명세서 PDF 자동",
+                "주간/월간 보고서 자동 발송",
                 "채널별 예상 수익 자동 분리",
                 "데이터 로컬 저장 + 백업·복원",
                 "정기 무료 업데이트",
@@ -492,9 +492,9 @@ export default function Home() {
               ].map((feature) => (
                 <li
                   key={feature}
-                  className="flex items-start gap-3 text-sm text-slate-300"
+                  className="flex items-start gap-1.5 text-xs text-slate-300"
                 >
-                  <span className="text-emerald-400 mt-0.5 flex-shrink-0 font-bold">
+                  <span className="text-emerald-400 mt-0.5 flex-shrink-0 font-bold text-[11px]">
                     ✓
                   </span>
                   <span>{feature}</span>
@@ -502,31 +502,31 @@ export default function Home() {
               ))}
             </ul>
 
-            {/* CTA 버튼 — 클릭 시 베타 신청 모달 열림 */}
+            {/* CTA 버튼 */}
             <BetaSignupButton kakaoUrl={KAKAO_OPEN_CHAT} />
 
-            <p className="text-center mt-4 text-xs text-slate-500">
+            <p className="text-center mt-2.5 text-[11px] text-slate-500">
               이메일 입력 → 시리얼 키 즉시 발송 (수동 발급 X)
             </p>
 
-            {/* 키 찾기 — 이미 신청한 사용자용 */}
-            <div className="mt-5 pt-5 border-t border-slate-800/60 text-center">
+            {/* 키 찾기 */}
+            <div className="mt-3 pt-3 border-t border-slate-800/60 text-center">
               <LicenseRecoveryButton />
             </div>
           </div>
 
           {/* 정식 출시 후 안내 */}
-          <div className="mt-8 p-5 rounded-xl bg-slate-900/40 border border-slate-800 text-sm">
-            <div className="flex items-start gap-3">
-              <span className="text-blue-400 flex-shrink-0 text-lg">ℹ️</span>
+          <div className="mt-5 p-3.5 rounded-xl bg-slate-900/40 border border-slate-800">
+            <div className="flex items-start gap-2">
+              <span className="text-blue-400 flex-shrink-0 text-sm">ℹ️</span>
               <div className="flex-1">
-                <p className="font-medium text-slate-200 mb-2">정식 출시 후 안내</p>
-                <ul className="space-y-1.5 text-xs text-slate-400 leading-relaxed">
-                  <li>· 월 구독제로 운영되며, 언제든 해지 가능합니다</li>
-                  <li>· 7일 무료 체험 후 자동 결제 (체험 기간 중 해지 시 결제 X)</li>
-                  <li>· 토스페이먼츠 정기결제 — 카드 · 카카오페이 · 네이버페이 지원 예정</li>
-                  <li>· 구독 해지 시 다음 결제만 중단 (이미 결제된 기간 계속 이용 가능)</li>
-                  <li>· 베타 사용자에게는 정식 출시 직전 별도 안내드립니다</li>
+                <p className="font-medium text-slate-200 text-xs mb-1.5">정식 출시 후 안내</p>
+                <ul className="space-y-1 text-[11px] text-slate-400 leading-relaxed">
+                  <li>· 월 구독제 · 언제든 해지 가능</li>
+                  <li>· 7일 무료 체험 후 자동 결제 (체험 중 해지 시 결제 X)</li>
+                  <li>· 토스페이먼츠 정기결제 — 카드·카카오페이·네이버페이 지원 예정</li>
+                  <li>· 해지 시 다음 결제만 중단 (결제된 기간 계속 이용 가능)</li>
+                  <li>· 베타 사용자에게는 정식 출시 직전 별도 안내</li>
                 </ul>
               </div>
             </div>
