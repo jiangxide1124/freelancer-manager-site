@@ -255,6 +255,14 @@ export default function Home() {
               >
                 기능 자세히 보기
               </a>
+              <a
+                href={KAKAO_OPEN_CHAT}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-semibold transition-colors shadow-lg shadow-yellow-900/30"
+              >
+                💬 카카오톡 대화방 입장
+              </a>
             </div>
             <p className="mt-6 text-xs text-slate-500">
               macOS · Windows 지원 · 데이터는 내 컴퓨터에만 저장 · 베타 기간 무료
