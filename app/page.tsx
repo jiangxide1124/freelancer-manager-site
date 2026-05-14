@@ -153,6 +153,10 @@ const FAQ_CATEGORIES: {
         q: "macOS 어떤 버전부터 지원하나요?",
         a: "macOS 10.12 (Sierra) 이상에서 작동합니다. 최신 macOS 모두 지원하며 Intel Mac과 Apple Silicon (M1·M2·M3·M4) 둘 다 호환됩니다.",
       },
+      {
+        q: "설치할 때 \"확인되지 않은 앱\" / \"Windows의 PC 보호\" 경고가 떠요. 안전한가요?",
+        a: "네, 안전합니다. 이는 베타 단계라 코드 서명 인증서(연 $200~600 비용)가 아직 없어서 OS가 띄우는 표준 경고이며, 앱 자체에 문제가 있는 게 아닙니다. 한 번만 통과시키면 다음부터는 안 뜹니다.\n\n[Windows의 경우 — SmartScreen]\n1) 경고 창에서 \"추가 정보\" 클릭\n2) 아래에 나타나는 \"실행\" 버튼 클릭\n\n[macOS의 경우 — Gatekeeper]\n1) 앱 아이콘 우클릭 → \"열기\" 선택\n2) 경고창에서 다시 \"열기\" 클릭\n\n정식 출시 시점에는 코드 서명 인증서를 도입해 경고가 뜨지 않도록 할 예정입니다.",
+      },
     ],
   },
 ];
@@ -548,7 +552,42 @@ export default function Home() {
             다운로드 → 설치 → 시리얼 키 입력. 5분 안에 첫 의뢰 등록 가능.
           </p>
           <DownloadButtons />
-          <p className="mt-8 text-xs text-slate-500">
+
+          {/* ⚠️ 보안 경고 우회 안내 — 코드 서명 인증서 미보유로 인한 SmartScreen / Gatekeeper 경고 */}
+          <div className="mt-8 mx-auto max-w-2xl text-left rounded-xl border border-amber-500/30 bg-amber-500/5 p-4">
+            <div className="flex items-start gap-2.5">
+              <span className="text-amber-400 flex-shrink-0 text-base mt-0.5">🛡️</span>
+              <div className="flex-1 text-xs text-slate-300 leading-relaxed">
+                <p className="font-semibold text-amber-200 mb-2">
+                  설치 시 "확인되지 않은 앱" 경고가 뜨면?
+                </p>
+                <p className="text-slate-400 mb-3">
+                  베타 단계라 코드 서명 인증서가 아직 없어 OS가 경고를 띄웁니다.
+                  <strong className="text-slate-200"> 안전한 앱이며, 한 번만 통과시키면 다음부터 안 뜹니다.</strong>
+                </p>
+
+                <div className="space-y-2.5">
+                  <div>
+                    <div className="text-[11px] font-semibold text-blue-300 mb-1">🪟 Windows (SmartScreen)</div>
+                    <ol className="ml-3 text-[11px] text-slate-400 space-y-0.5 list-decimal">
+                      <li>"Windows의 PC 보호" 창에서 <strong className="text-slate-200">"추가 정보"</strong> 클릭</li>
+                      <li>아래에 나타나는 <strong className="text-slate-200">"실행"</strong> 버튼 클릭</li>
+                    </ol>
+                  </div>
+
+                  <div>
+                    <div className="text-[11px] font-semibold text-purple-300 mb-1">🍎 macOS (Gatekeeper)</div>
+                    <ol className="ml-3 text-[11px] text-slate-400 space-y-0.5 list-decimal">
+                      <li>앱 아이콘 <strong className="text-slate-200">우클릭</strong> → <strong className="text-slate-200">"열기"</strong></li>
+                      <li>경고창에서 다시 <strong className="text-slate-200">"열기"</strong> 클릭</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-6 text-xs text-slate-500">
             ※ 현재 베타 운영 중. 다운로드 후 시리얼 키 입력 화면이 나오면{' '}
             <a
               href={KAKAO_OPEN_CHAT}
