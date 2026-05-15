@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.24",
+  latest: "0.2.25",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "다크모드 시인성 보강 (토글/인디케이터/미리보기 + TikTok 검정 배경) + 타입 정리",
+  releaseNotes: "KPI 카드 기본 순서 변경: 수익 흐름 먼저(확정/추정/합계/순이익) → 비용(인건비/보너스) 나중 + 자동 마이그레이션",
   publishedAt: "2026-05-15",
 };
 
