@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.12",
+  latest: "0.2.13",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "YouTube Analytics 채널별 OAuth 분리 + view_snapshot UNIQUE 추가",
+  releaseNotes: "대시보드 KPI: cumviews 카드 통합, 예상 실수익 카드에 확정/추정 분리 표시",
   publishedAt: "2026-05-15",
 };
 
