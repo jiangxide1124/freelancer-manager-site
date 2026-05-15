@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.31",
+  latest: "0.2.32",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "정산 + 명세서: 누적 보너스 행에 조회수 합계 표시 + 합계 row 조회수 컬럼 추가 + 명세서 영상 표 누적/합계 행 통합",
+  releaseNotes: "사이드바 의뢰 관리 메뉴에 미지정 영상 카운트 뱃지 추가 (다른 페이지에서도 한눈에 확인)",
   publishedAt: "2026-05-15",
 };
 
