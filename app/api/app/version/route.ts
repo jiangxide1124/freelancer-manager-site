@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.28",
+  latest: "0.2.29",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "가이드 모달의 URL을 클릭 가능하게 — [text](url) + raw URL 자동 링크화 (Electron이 외부 브라우저로 열어줌)",
+  releaseNotes: "가이드 모달 UX 개선: 목차 클릭 시 헤딩 스크롤 + 코드블록 안 URL 클릭 가능 + 복사 버튼 추가",
   publishedAt: "2026-05-15",
 };
 
