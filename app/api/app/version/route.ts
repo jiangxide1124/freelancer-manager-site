@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.18",
+  latest: "0.2.19",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "정산요약 누적보너스 포함 + 활성작업자→총인건비 + 인건비 플랫폼분할 제거 + 순이익 줄바꿈 방지",
+  releaseNotes: "인건비 계산 버그 수정: 단가만(영상보너스 분리) + 인건비 카드에 프리랜서별 분할 표시",
   publishedAt: "2026-05-15",
 };
 
