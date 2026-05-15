@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.16",
+  latest: "0.2.17",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "보너스 통합 카드 + 합계수익 카드 추가",
+  releaseNotes: "순이익에 보너스 차감 추가 + 보너스 카드 줄바꿈 + 0원/수익화전 채널 숨김",
   publishedAt: "2026-05-15",
 };
 
