@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.2",
+  latest: "0.3.3",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "Analytics OAuth scope에 monetary 추가 — 수익 메트릭(estimatedRevenue 등) 권한 필요",
+  releaseNotes: "★ 핵심 핫픽스 — migrate() currentVersion ReferenceError 수정 (v23/v24 마이그레이션 실패 원인)",
   publishedAt: "2026-05-17",
 };
 
