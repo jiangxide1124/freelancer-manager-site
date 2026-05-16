@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.41",
+  latest: "0.2.42",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "YouTube Analytics backfill 버그 수정 — 마지막 row가 endDate 미달 시 currentViews를 23:59:59에 잘못 attribution하는 문제 해결",
+  releaseNotes: "차트 라벨 정정: 채널별 일별 조회수 → 누적 조회수 추이 (실제 데이터가 누적값)",
   publishedAt: "2026-05-16",
 };
 
