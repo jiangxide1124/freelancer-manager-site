@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.6",
+  latest: "0.3.7",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "정산 인건비/보너스 분리 + TikTok 추이 색 + RPM tooltip + 라벨 정정",
+  releaseNotes: "RPM 계산식 수정(views 기준) + 정산 칩 분리 + 진짜 Tooltip + Analytics 데이터 범위 라벨 + 조회수 컬럼 추가",
   publishedAt: "2026-05-17",
 };
 
