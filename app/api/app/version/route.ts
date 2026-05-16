@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.35",
+  latest: "0.2.36",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "autoImport OAuth 우선 — 예약/비공개 YouTube 영상도 자동 발견 (Analytics 연결된 채널 한정)",
+  releaseNotes: "사이드바 미지정 영상 뱃지 — dataBus 구독 추가로 작업자 배정 즉시 갱신",
   publishedAt: "2026-05-16",
 };
 
