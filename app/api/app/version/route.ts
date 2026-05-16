@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.49",
+  latest: "0.2.50",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "채널 그룹 동기화 — 같은 이름이면 모든 플랫폼 카드 자동 매칭",
+  releaseNotes: "플랫폼별 독립 채널 선택 — 상단 그룹 드롭다운만 동시 동기화",
   publishedAt: "2026-05-17",
 };
 
