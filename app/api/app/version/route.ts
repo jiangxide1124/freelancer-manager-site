@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.7",
+  latest: "0.3.9",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "RPM 계산식 수정(views 기준) + 정산 칩 분리 + 진짜 Tooltip + Analytics 데이터 범위 라벨 + 조회수 컬럼 추가",
+  releaseNotes: "Analytics 메트릭 7종 추가 (평균 시청 시간/조회율/좋아요/댓글/공유/카드 노출/CTR) + DB v25",
   publishedAt: "2026-05-17",
 };
 
