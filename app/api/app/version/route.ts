@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.46",
+  latest: "0.2.47",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "비활성 프리랜서 의뢰는 채널별 통계에서 제외 (이번 달 의뢰/평균 조회수)",
+  releaseNotes: "TikTok 채널 드롭다운 단일 모드 / 채널명 자동 갱신 / stats_log 채널별 분리",
   publishedAt: "2026-05-16",
 };
 
