@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.43",
+  latest: "0.2.44",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "추정 추가 카드 클릭 시 채널별 상세 모달 (조회수/CPV/추정수익 표 + 추정 기간 표시)",
+  releaseNotes: "채널 카드에 실시간 조회수 추가 — 최근 48h / 1h delta. 10분 자동 폴링 (백그라운드, 토스트 없음)",
   publishedAt: "2026-05-16",
 };
 
