@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.4",
+  latest: "0.3.5",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "설정 페이지 스크롤 top 자동 + YouTube Analytics 카드 채널별 분할 + 보는 달 라벨 표시",
+  releaseNotes: "Analytics 카드 표 형식 + 확정 실수익을 Analytics 직접 데이터로 일치",
   publishedAt: "2026-05-17",
 };
 
