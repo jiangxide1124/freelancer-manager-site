@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.39",
+  latest: "0.2.40",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "YouTube Analytics 자동 fetch 윈도우 1일→7일 — Analytics 24~72h 지연 대비 누락 자동 보충",
+  releaseNotes: "YouTube 영상 갱신 실패 시 video ID + 의뢰 제목을 인앱 로그 뷰어에 자동 기록 (console.warn 추가)",
   publishedAt: "2026-05-16",
 };
 
