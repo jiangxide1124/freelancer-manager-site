@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.2.42",
+  latest: "0.2.43",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "차트 라벨 정정: 채널별 일별 조회수 → 누적 조회수 추이 (실제 데이터가 누적값)",
+  releaseNotes: "추정 추가 카드 클릭 시 채널별 상세 모달 (조회수/CPV/추정수익 표 + 추정 기간 표시)",
   publishedAt: "2026-05-16",
 };
 
