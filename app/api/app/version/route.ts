@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.15",
+  latest: "0.3.16",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "main 감사 수정: RCE 방어 + channel 트랜잭션 + IG 토큰 + dedup race + SQL/regex/dead code 정리",
+  releaseNotes: "Tooltip Portal 수정 (overflow 컨테이너 해소) + 캐시 정리 + 용량 측정 UI",
   publishedAt: "2026-05-17",
 };
 
