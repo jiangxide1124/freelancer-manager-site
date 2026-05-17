@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.28",
+  latest: "0.3.29",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "Onboarding hover 다크 + 시작 시 orphan 시계열 자동 정리 (view_snapshot/video_daily_metrics)",
+  releaseNotes: "TikTok 최근 팔로워 UI도 제거 (v0.3.27 YT 제거와 일관성)",
   publishedAt: "2026-05-17",
 };
 
