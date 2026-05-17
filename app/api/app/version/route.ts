@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.26",
+  latest: "0.3.27",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "최근 조회수 polling 버그 fix — channel.api_key가 JSON 배열일 때 첫 키만 추출 (이전엔 JSON 문자열 통째로 URL 박혀서 fetch 모두 실패)",
+  releaseNotes: "최근 조회수 UI 제거 (YT 1h/24h/48h) — 공식 YT API 한계로 실시간 보장 불가, 과감히 정리. TikTok 팔로워는 유지.",
   publishedAt: "2026-05-17",
 };
 
