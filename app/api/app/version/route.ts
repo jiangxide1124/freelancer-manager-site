@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.32",
+  latest: "0.3.33",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "사전 새로고침 timestamp 기반 (10분 윈도우) — 같은 날 시각 변경 / 수동 트리거 시 stale data 회피",
+  releaseNotes: "자동 발송 — 노트북 sleep/resume 후 누락 방지 (focus + online 이벤트 트리거)",
   publishedAt: "2026-05-17",
 };
 
