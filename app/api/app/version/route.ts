@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.24",
+  latest: "0.3.25",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "최근 조회수 정확도 개선 — channel.list 6h 캐시 대신 영상별 latest snapshot 합산 (5분 cadence)",
+  releaseNotes: "선택된 채널만 1분 고속 videos.list 폴링 — fresh data + SUM → 5분 단위 의미 있는 1h delta",
   publishedAt: "2026-05-17",
 };
 
