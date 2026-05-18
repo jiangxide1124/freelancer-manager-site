@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.60",
+  latest: "0.3.61",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "정산 표 보너스 컬럼 — 금액 우측 정렬 + 라벨 폭 고정 (행 간 금액 끝 일치)",
+  releaseNotes: "정산 표 합계 행 보너스 셀도 영상 라인과 금액 끝 위치 일치",
   publishedAt: "2026-05-19",
 };
 
