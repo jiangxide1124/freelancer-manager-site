@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.50",
+  latest: "0.3.51",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "의뢰 관리 테이블 컬럼 압축 버그 수정 — min-width + horizontal scroll",
+  releaseNotes: "KPI 카드 원래 사이즈 복귀 + 인건비 건수 표시 제거 (이름 풀로 표시)",
   publishedAt: "2026-05-18",
 };
 
