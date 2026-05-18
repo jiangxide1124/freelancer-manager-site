@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.46",
+  latest: "0.3.47",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "YouTube autoImport 403 에러 사유 친절화 (quota/OAuth/권한 구분)",
+  releaseNotes: "YouTube autoImport incremental 최적화 — 매번 모든 페이지 fetch 안 함 (quota 90% 절감)",
   publishedAt: "2026-05-18",
 };
 
