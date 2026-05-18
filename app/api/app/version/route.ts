@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.52",
+  latest: "0.3.53",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "의뢰 관리 테이블 — table-fixed + colgroup으로 컬럼 폭 강제 (작업자 이름 세로 잘림 완전 해결)",
+  releaseNotes: "의뢰관리 테이블 — 우측 컬럼까지 한 화면에 맞춤, 주제는 길면 ... 처리",
   publishedAt: "2026-05-18",
 };
 
