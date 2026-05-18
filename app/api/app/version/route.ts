@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.57",
+  latest: "0.3.58",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "프리랜서 권한 토글 5종 — 수습/외주/인턴 등 다양한 케이스 지원 (인건비/보너스/정산서/이메일/본인지급)",
+  releaseNotes: "대시보드 무한 로딩 긴급 수정 — freelancerRepo import 누락 추가",
   publishedAt: "2026-05-18",
 };
 
