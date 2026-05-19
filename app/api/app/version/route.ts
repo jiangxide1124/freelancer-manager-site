@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.62",
+  latest: "0.3.63",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "정산 보너스 셀 금액 좌측 시작 위치도 행 간 일치 (min-width 80px 박스)",
+  releaseNotes: "급여명세서 자동 발송 시스템 — asOfDate 박제 + 발송대상 관리 (정직원/외주/수습 다양한 케이스 지원)",
   publishedAt: "2026-05-19",
 };
 
