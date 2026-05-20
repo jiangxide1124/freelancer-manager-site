@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.65",
+  latest: "0.3.66",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "급여명세서 PDF 디자인 적용 + 파일명 prefix + 0원 안내",
-  publishedAt: "2026-05-20",
+  releaseNotes: "급여명세서 발송/테스트 전 UI 설정 자동 저장 — 미저장 변경 불일치 방지",
+  publishedAt: "2026-05-21",
 };
 
 export async function GET() {
