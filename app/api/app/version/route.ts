@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.72",
+  latest: "0.3.73",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "IMAP 백필이 급여명세서 메일도 인식 — [YYYY년 M월] 급여명세서 제목 패턴 + payslip 타입 복구",
+  releaseNotes: "급여명세서 인쇄 팝업 차단 수정 — window.open 대신 iframe 인쇄 (Electron 호환)",
   publishedAt: "2026-05-21",
 };
 
