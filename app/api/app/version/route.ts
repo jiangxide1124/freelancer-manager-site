@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.75",
+  latest: "0.3.76",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "YT 자동 가져오기 — OAuth 만료/없음 시 명확한 errors 노출 (예약·비공개 영상 누락 진단)",
-  publishedAt: "2026-05-25",
+  releaseNotes: "YT autoImport — OAuth만 있고 API 키 없는 채널도 처리 (정치카툰 케이스), OAuth 갱신 실패 + 키 없으면 명확한 에러",
+  publishedAt: "2026-05-26",
 };
 
 export async function GET() {
