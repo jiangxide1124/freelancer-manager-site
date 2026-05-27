@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.77",
+  latest: "0.3.78",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "보너스 설정 별도 페이지 분리 + 편수 보너스 추가 (채널·플랫폼·월별/누적, 정산 자동 합산)",
+  releaseNotes: "편수 보너스 채널 드롭다운에 플랫폼 라벨 표시 — 동명 채널 구분 (특검해설 YouTube vs TikTok)",
   publishedAt: "2026-05-27",
 };
 
