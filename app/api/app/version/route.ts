@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.93",
+  latest: "0.3.94",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "노딱(규정위반·수익자격박탈) 영상 수익 제외 — 의뢰 수정 모달 체크박스 + 목록/카드 배지, CPV 예상수익·조회수 보너스(영상·누적) 제외, 편당 단가·편수 보너스 유지, 대시보드 카드·차트 전반 반영",
+  releaseNotes: "노딱 수익 제외 — 성과보고서/명세서 PDF 계산 경로 누락 보완: generateLocalReport의 조회수 보너스·누적 보너스 basis·플랫폼별 보너스에서 노딱 영상 제외 (편당 단가·편수 보너스·조회수 표시는 그대로 유지). v0.3.93은 정산·대시보드에만 반영됐고 보고서 독립 계산 경로가 빠져 있던 것을 수정 — 정산·대시보드·보고서·명세서·엑셀 전 경로 노딱 일관 처리 완료",
   publishedAt: "2026-05-29",
 };
 
