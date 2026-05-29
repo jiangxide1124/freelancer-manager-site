@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.95",
+  latest: "0.3.96",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "노딱 후속 — 보고서/명세서 PDF 누적 보너스 드리프트 수정: generateLocalReport가 정산(computeMonth)과 달리 'tier 활성 월(start_ym~end_ym)' 필터를 누락해 활성 기간 밖 누적 보너스 tier까지 합산하던 문제 보완. 정산 페이지와 명세서 PDF 누적 보너스 금액 일치 보장 (노딱 view basis는 v0.3.94에서 이미 일치)",
+  releaseNotes: "명세서/보고서 PDF에 프리랜서별 지급·보너스 토글 반영 — generateLocalReport가 정산(computeMonth)과 달리 enable_payout=0(편당 단가)·enable_bonus=0(조회수 보너스 합계+라인)을 무시해 과지급 표시하던 드리프트 수정. 편수 보너스는 computeMonth 결과 재사용으로 이미 반영됨, 누적 보너스는 computeMonth와 동일하게 enable_bonus 미적용 유지. 정산·대시보드·명세서 전 경로 토글 일관 처리",
   publishedAt: "2026-05-29",
 };
 
