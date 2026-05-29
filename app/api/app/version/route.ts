@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.3",
+  latest: "0.4.4",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "코드 점검 마무리: 영상 가져오기 모달 undefined 응답 가드 + 채널명 초기화, API 가이드 목차 코드펜스 스킵(목차-헤딩 인덱스 정합) + 사용하지 않는 prop 제거",
+  releaseNotes: "라이선스 ID 재활용 방지(영구 단조 증가 카운터로 HMAC 네임스페이스 충돌 차단) + 채널별 CPV 빈/잘못된 입력 시 NaN 저장 방지(→ null)",
   publishedAt: "2026-05-29",
 };
 
