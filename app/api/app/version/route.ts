@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.98",
+  latest: "0.3.99",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "정산·라이선스 토스트 피드백·날짜 표시 가드 + 컴포넌트 점검(편수 보너스 NaN 방어·변경이력 다크모드 시인성·빈 상태 안내·인라인 코드 다크 색상)",
+  releaseNotes: "백엔드 안정성 점검 — 누적 보너스 설정 JSON 손상 시 대시보드·정산 계산 크래시 방어(배열 강제) + DB 스키마 컬럼명 검증 정규식 통일(숫자 허용)",
   publishedAt: "2026-05-29",
 };
 
