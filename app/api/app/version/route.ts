@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.3.99",
+  latest: "0.4.0",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "백엔드 안정성 점검 — 누적 보너스 설정 JSON 손상 시 대시보드·정산 계산 크래시 방어(배열 강제) + DB 스키마 컬럼명 검증 정규식 통일(숫자 허용)",
+  releaseNotes: "정산 보너스 분해 스냅샷 박제 (schema v32) + 명세서/이메일/정산표 누적·편수 보너스 정확 항목화 + 보고서 누적보너스 현재월 게이트 정합",
   publishedAt: "2026-05-29",
 };
 
