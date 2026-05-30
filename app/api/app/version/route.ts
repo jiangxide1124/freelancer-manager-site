@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.4",
+  latest: "0.4.5",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "라이선스 ID 재활용 방지(영구 단조 증가 카운터로 HMAC 네임스페이스 충돌 차단) + 채널별 CPV 빈/잘못된 입력 시 NaN 저장 방지(→ null)",
-  publishedAt: "2026-05-29",
+  releaseNotes: "대시보드 헤더 가로 스크롤 제거 — 한 줄 유지하며 그룹 간격·칩 패딩·월 입력 폭 압축(약 66px)으로 한눈에 표시",
+  publishedAt: "2026-05-30",
 };
 
 export async function GET() {
