@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.6",
+  latest: "0.4.7",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "YouTube Analytics 상세 표 가로 스크롤 제거 — 17개 컬럼 셀 패딩 px-2→px-1.5로 약 68px 축소해 한눈에 표시(글자·기능 유지)",
+  releaseNotes: "YouTube Analytics 상세 표 가로 스크롤 완전 제거 — 셀 패딩 px-1.5→px-1 + 글꼴 text-xs→11px로 약 150px 추가 축소(데이터·기능 유지)",
   publishedAt: "2026-05-30",
 };
 
