@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.11",
+  latest: "0.4.12",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "누적 보너스 월별 귀속 — 그 달 영상·월말 조회수 기준으로 대시보드·정산·명세서·보고서 통일",
+  releaseNotes: "성과보고서 모달에 월 선택 추가 — 대시보드 월과 독립적으로 과거 달 보고서 생성",
   publishedAt: "2026-06-01",
 };
 
