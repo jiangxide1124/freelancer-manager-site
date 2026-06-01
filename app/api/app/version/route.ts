@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.14",
+  latest: "0.4.15",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "성과보고서에 편수 보너스 달성 내역 표시 — 몇 편 제작 → N편당 X원 × M회 = 합계",
+  releaseNotes: "급여명세서·정산표 편수 보너스 설명 명확화 — N편마다 per-unit 금액 + 달성 횟수 표기",
   publishedAt: "2026-06-02",
 };
 
