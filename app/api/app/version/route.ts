@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.8",
+  latest: "0.4.9",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "대시보드 페이지 가로 스크롤바 원천 제거 (main 세로 전용)",
-  publishedAt: "2026-05-30",
+  releaseNotes: "누적 보너스 월 귀속 버그 수정 — 그 달 영상 없으면 전체누적 폴백 금지(0 처리)",
+  publishedAt: "2026-06-01",
 };
 
 export async function GET() {
