@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.26",
+  latest: "0.4.27",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "수습/정식 3·4단계 — 성과보고서에서 수습 영상 제외(계약일 필터) + 자동 이메일은 정식 영상 있는 달만 발송(month_video_count 정식 기준). 수습/정식 기능 완성",
+  releaseNotes: "작업자별 누적 조회수 카드 편수도 월별로 — 조회수는 해당월인데 편수만 전체였던 불일치 수정 (월 선택 시 그 달 편수, 전체는 올타임)",
   publishedAt: "2026-06-03",
 };
 
