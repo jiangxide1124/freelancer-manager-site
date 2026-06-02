@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.24",
+  latest: "0.4.25",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "수습/정식 1.5단계 — 수습 단가(probation_rate) 필드 + UI (정식 단가 옆 수습 단가 입력). 게이팅은 2단계",
+  releaseNotes: "수습/정식 2단계 — 정산 게이팅: 계약일 이전=수습(수습단가·사장귀속·명세서 제외·보너스0), 이후=정식. 누적·편수 보너스도 정식만. 대시보드 인건비에 수습 지출 합산",
   publishedAt: "2026-06-02",
 };
 
