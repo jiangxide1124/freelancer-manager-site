@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.21",
+  latest: "0.4.22",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "수익 마이너스 버그 수정 — 영상별 그 달 조회수 감소분은 수익 0으로 클램프 (삭제/리셋된 TikTok 영상이 음수 수익 만들던 것 차단)",
+  releaseNotes: "인건비 카드 이름 옆 (사장) 텍스트 제거 — 사장 귀속은 회색·툴팁으로만 표시",
   publishedAt: "2026-06-02",
 };
 
