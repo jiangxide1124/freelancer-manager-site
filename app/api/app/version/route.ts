@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.22",
+  latest: "0.4.23",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "인건비 카드 이름 옆 (사장) 텍스트 제거 — 사장 귀속은 회색·툴팁으로만 표시",
+  releaseNotes: "수습/정식 1단계 — 프리랜서 정식 전환 계약일 필드 추가 + 편집 화면 입력 (게이팅은 다음 단계)",
   publishedAt: "2026-06-02",
 };
 
