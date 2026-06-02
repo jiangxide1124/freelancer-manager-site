@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.25",
+  latest: "0.4.26",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "수습/정식 2단계 — 정산 게이팅: 계약일 이전=수습(수습단가·사장귀속·명세서 제외·보너스0), 이후=정식. 누적·편수 보너스도 정식만. 대시보드 인건비에 수습 지출 합산",
-  publishedAt: "2026-06-02",
+  releaseNotes: "수습/정식 3·4단계 — 성과보고서에서 수습 영상 제외(계약일 필터) + 자동 이메일은 정식 영상 있는 달만 발송(month_video_count 정식 기준). 수습/정식 기능 완성",
+  publishedAt: "2026-06-03",
 };
 
 export async function GET() {
