@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.20",
+  latest: "0.4.21",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "대시보드 편수 보너스(모든 플랫폼 룰) 특정 플랫폼 필터에서도 표시 + '(전체)' 라벨",
+  releaseNotes: "수익 마이너스 버그 수정 — 영상별 그 달 조회수 감소분은 수익 0으로 클램프 (삭제/리셋된 TikTok 영상이 음수 수익 만들던 것 차단)",
   publishedAt: "2026-06-02",
 };
 
