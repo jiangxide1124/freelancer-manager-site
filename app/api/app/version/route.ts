@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.29",
+  latest: "0.4.30",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "전체 코드 점검 16파일 수정 — 영상임포트 UTC 정산월 버그·무한스피너/에러핸들링·검색탭 카운트정합·이메일발송내역 탭카운트(countByType IPC)·TikTok user/info basic+stats 분리·다크 시인성 다수. 머니 계산 무변경",
+  releaseNotes: "수익 카드 로직 수정 — 합계수익이 YouTube Analytics 실수익을 무시하고 조회수×CPV로 재계산하던 버그(5·6월 공통). 확정=Analytics 실수익 / 추정=Analytics 미보고 조회수×CPV(경계 통일로 이중계산 제거) / 합계=확정+추정 일관 계산. 완료된 달(5월 등)은 실제 수익 정확 표시. net_revenue·상세모달 정합",
   publishedAt: "2026-06-05",
 };
 
