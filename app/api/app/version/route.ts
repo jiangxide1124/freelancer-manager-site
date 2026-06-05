@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.28",
+  latest: "0.4.29",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "보고서 모달 작업자 드롭다운 편수를 선택한 달 기준(정식·해당월)으로 표시",
-  publishedAt: "2026-06-04",
+  releaseNotes: "전체 코드 점검 16파일 수정 — 영상임포트 UTC 정산월 버그·무한스피너/에러핸들링·검색탭 카운트정합·이메일발송내역 탭카운트(countByType IPC)·TikTok user/info basic+stats 분리·다크 시인성 다수. 머니 계산 무변경",
+  publishedAt: "2026-06-05",
 };
 
 export async function GET() {
