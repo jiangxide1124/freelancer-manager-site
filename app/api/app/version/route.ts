@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.30",
+  latest: "0.4.31",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "수익 카드 로직 수정 — 합계수익이 YouTube Analytics 실수익을 무시하고 조회수×CPV로 재계산하던 버그(5·6월 공통). 확정=Analytics 실수익 / 추정=Analytics 미보고 조회수×CPV(경계 통일로 이중계산 제거) / 합계=확정+추정 일관 계산. 완료된 달(5월 등)은 실제 수익 정확 표시. net_revenue·상세모달 정합",
-  publishedAt: "2026-06-05",
+  releaseNotes: "대시보드 채널 선택 반영 — 채널을 바꿔도 하단 차트(월별 평균 조회수 등 17종)와 KPI(조회수·수익·인건비)가 안 바뀌던 문제. getStats가 플랫폼별 독립 채널 필터 적용(미선택 플랫폼은 전체 유지). 프런트는 이미 채널 변경 시 재요청하므로 즉시 갱신",
+  publishedAt: "2026-06-06",
 };
 
 export async function GET() {
