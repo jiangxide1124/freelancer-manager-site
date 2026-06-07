@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.35",
+  latest: "0.4.36",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "대시보드 '등록 채널이 다 안 보임' 수정 — YouTube가 첫 채널을 자동선택하던 게(TikTok/IG는 전체가 기본인데 YT만 다름) v0.4.31 채널 필터와 맞물려 데이터를 그 채널로 좁혀 다른 채널을 가렸음. YT도 '전체' 기본으로 통일 + 기존 자동선택값·플랫폼필터 1회 '전체' 리셋. 이제 등록한 모든 채널·플랫폼이 기본 표시, 특정 채널 선택 시에만 필터",
+  releaseNotes: "대시보드 TikTok 채널 정보 안 뜨던 것 수정 — v0.4.33에 넣은 9초 전체 상한이, v0.4.35에서 YouTube가 '전체' 모드(모든 채널 순회)로 느려지면서 그 뒤 TikTok/IG 정보 보강을 잘라버린 문제. 9초 전체 상한 제거(각 fetch 8초 타임아웃은 유지 → 무한 hang은 계속 방지). 이제 TikTok 팔로워 등 채널 정보가 끝까지 로드됨",
   publishedAt: "2026-06-08",
 };
 
