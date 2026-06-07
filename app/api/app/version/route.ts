@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.36",
+  latest: "0.4.37",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "대시보드 TikTok 채널 정보 안 뜨던 것 수정 — v0.4.33에 넣은 9초 전체 상한이, v0.4.35에서 YouTube가 '전체' 모드(모든 채널 순회)로 느려지면서 그 뒤 TikTok/IG 정보 보강을 잘라버린 문제. 9초 전체 상한 제거(각 fetch 8초 타임아웃은 유지 → 무한 hang은 계속 방지). 이제 TikTok 팔로워 등 채널 정보가 끝까지 로드됨",
+  releaseNotes: "대시보드 채널 필터 범위 조정 — 채널 선택 시 금액/KPI 카드(확정·추정·합계·인건비)는 '항상 전체 채널' 유지(이미 채널별로 분리 표시되므로), 하단 그래프(차트)만 선택 채널 반영. v0.4.31이 금액까지 채널로 좁혔던 걸, 차트 4종(daily_trend·monthly_trend·duration_buckets·day_of_week)에만 적용하도록 분리(chFilter='' KPI전체 / gChFilter 차트필터). 사용자 요청",
   publishedAt: "2026-06-08",
 };
 
