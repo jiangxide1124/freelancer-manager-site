@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.34",
+  latest: "0.4.35",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "대시보드 크래시 진짜 원인 수정 — getStats 시그니처를 channelId→channels로 바꿀 때 channel_overview 구성부 5곳의 옛 channelId 참조를 놓쳐 ReferenceError로 throw(v0.4.31부터 깨짐). channels.yt/tt로 수정. 루트 tsconfig가 main/을 타입체크 안 해서(src만 포함) tsc가 못 잡았던 것 → tsconfig.node.json으로 검증 완료. v0.4.32/33의 타임아웃·Promise.race 하드 상한도 유지(실제 API hang 대비)",
-  publishedAt: "2026-06-07",
+  releaseNotes: "대시보드 '등록 채널이 다 안 보임' 수정 — YouTube가 첫 채널을 자동선택하던 게(TikTok/IG는 전체가 기본인데 YT만 다름) v0.4.31 채널 필터와 맞물려 데이터를 그 채널로 좁혀 다른 채널을 가렸음. YT도 '전체' 기본으로 통일 + 기존 자동선택값·플랫폼필터 1회 '전체' 리셋. 이제 등록한 모든 채널·플랫폼이 기본 표시, 특정 채널 선택 시에만 필터",
+  publishedAt: "2026-06-08",
 };
 
 export async function GET() {
