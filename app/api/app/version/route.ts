@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.32",
+  latest: "0.4.33",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "대시보드 무한 로딩(hang) 수정 — 외부 API fetch(YouTube/TikTok/IG 채널정보·토큰갱신)에 타임아웃이 없어, API가 응답 없이 멈추면 대시보드가 영원히 '불러오는 중'에 갇히던 문제. 5개 fetch 전부 8초 타임아웃 적용 — 응답 없으면 중단하고 DB 데이터로 대시보드는 정상 표시. (다른 페이지는 외부 API 안 써서 멀쩡했음)",
+  releaseNotes: "대시보드 무한 로딩 하드 수정 — 외부 API 보강(YouTube/TikTok/IG 채널정보·토큰갱신) 전체를 Promise.race로 9초 하드 상한. 어떤 fetch가 응답 없이 멈춰도 대시보드는 DB 데이터로 9초 내 반드시 표시. (v0.4.32 fetch 타임아웃이 환경상 미동작했을 경우 대비한 setTimeout 백스톱)",
   publishedAt: "2026-06-07",
 };
 
