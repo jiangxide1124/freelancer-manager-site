@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.33",
+  latest: "0.4.34",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "대시보드 무한 로딩 하드 수정 — 외부 API 보강(YouTube/TikTok/IG 채널정보·토큰갱신) 전체를 Promise.race로 9초 하드 상한. 어떤 fetch가 응답 없이 멈춰도 대시보드는 DB 데이터로 9초 내 반드시 표시. (v0.4.32 fetch 타임아웃이 환경상 미동작했을 경우 대비한 setTimeout 백스톱)",
+  releaseNotes: "대시보드 크래시 진짜 원인 수정 — getStats 시그니처를 channelId→channels로 바꿀 때 channel_overview 구성부 5곳의 옛 channelId 참조를 놓쳐 ReferenceError로 throw(v0.4.31부터 깨짐). channels.yt/tt로 수정. 루트 tsconfig가 main/을 타입체크 안 해서(src만 포함) tsc가 못 잡았던 것 → tsconfig.node.json으로 검증 완료. v0.4.32/33의 타임아웃·Promise.race 하드 상한도 유지(실제 API hang 대비)",
   publishedAt: "2026-06-07",
 };
 
