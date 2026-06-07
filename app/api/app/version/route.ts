@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.31",
+  latest: "0.4.32",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "대시보드 채널 선택 반영 — 채널을 바꿔도 하단 차트(월별 평균 조회수 등 17종)와 KPI(조회수·수익·인건비)가 안 바뀌던 문제. getStats가 플랫폼별 독립 채널 필터 적용(미선택 플랫폼은 전체 유지). 프런트는 이미 채널 변경 시 재요청하므로 즉시 갱신",
-  publishedAt: "2026-06-06",
+  releaseNotes: "대시보드 무한 로딩(hang) 수정 — 외부 API fetch(YouTube/TikTok/IG 채널정보·토큰갱신)에 타임아웃이 없어, API가 응답 없이 멈추면 대시보드가 영원히 '불러오는 중'에 갇히던 문제. 5개 fetch 전부 8초 타임아웃 적용 — 응답 없으면 중단하고 DB 데이터로 대시보드는 정상 표시. (다른 페이지는 외부 API 안 써서 멀쩡했음)",
+  publishedAt: "2026-06-07",
 };
 
 export async function GET() {
