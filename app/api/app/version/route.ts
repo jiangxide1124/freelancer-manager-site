@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.38",
+  latest: "0.4.39",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "인건비 지출 분석 페이지 신규(사이드바 '인건비 분석') — ①KPI: 총 인건비·추정 수익·ROI(수익÷인건비)·인건비 비중·편당 인건비·1만회당 인건비·손익분기 조회수 ②인건비 구성(단가 vs 영상/편수/누적 보너스) ③6개월 인건비 vs 수익 추이 ④작업자별 ROI 테이블(편수·단가·보너스·편당·조회수·수익·ROI) ⑤플랫폼별 인건비 vs 수익 ⑥수습 사장귀속 별도. 백엔드 laborAnalysis IPC(정산 재집계+작업자별 수익 views×CPV)",
-  publishedAt: "2026-06-09",
+  releaseNotes: "인건비 분석 심화 7종 — ①🤖 자동 인사이트(가성비1위·적자 작업자·인건비비중 전월대비·보너스효율·인력집중도·월말예상을 문장으로 자동 요약) ②KPI 전월 대비 ▲▼% ③💵 순이익(수익−인건비)·편당 마진 ④🚨 적자 작업자 수 + 테이블 행 하이라이트 + 마진 컬럼 ⑤🎁 보너스 효율(받은 vs 안받은 평균 ROI) ⑥⚖️ 인건비 집중도(상위1명/3명 %) ⑦📅 월말 예상 인건비(이번달 페이스 추정). 추이를 선택월 기준 6개월로 변경",
+  publishedAt: "2026-06-10",
 };
 
 export async function GET() {
