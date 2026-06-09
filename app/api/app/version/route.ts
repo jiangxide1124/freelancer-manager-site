@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.37",
+  latest: "0.4.38",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "대시보드 채널 필터 범위 조정 — 채널 선택 시 금액/KPI 카드(확정·추정·합계·인건비)는 '항상 전체 채널' 유지(이미 채널별로 분리 표시되므로), 하단 그래프(차트)만 선택 채널 반영. v0.4.31이 금액까지 채널로 좁혔던 걸, 차트 4종(daily_trend·monthly_trend·duration_buckets·day_of_week)에만 적용하도록 분리(chFilter='' KPI전체 / gChFilter 차트필터). 사용자 요청",
-  publishedAt: "2026-06-08",
+  releaseNotes: "인건비 지출 분석 페이지 신규(사이드바 '인건비 분석') — ①KPI: 총 인건비·추정 수익·ROI(수익÷인건비)·인건비 비중·편당 인건비·1만회당 인건비·손익분기 조회수 ②인건비 구성(단가 vs 영상/편수/누적 보너스) ③6개월 인건비 vs 수익 추이 ④작업자별 ROI 테이블(편수·단가·보너스·편당·조회수·수익·ROI) ⑤플랫폼별 인건비 vs 수익 ⑥수습 사장귀속 별도. 백엔드 laborAnalysis IPC(정산 재집계+작업자별 수익 views×CPV)",
+  publishedAt: "2026-06-09",
 };
 
 export async function GET() {
