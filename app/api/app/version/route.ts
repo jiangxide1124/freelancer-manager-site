@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.39",
+  latest: "0.4.40",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "인건비 분석 심화 7종 — ①🤖 자동 인사이트(가성비1위·적자 작업자·인건비비중 전월대비·보너스효율·인력집중도·월말예상을 문장으로 자동 요약) ②KPI 전월 대비 ▲▼% ③💵 순이익(수익−인건비)·편당 마진 ④🚨 적자 작업자 수 + 테이블 행 하이라이트 + 마진 컬럼 ⑤🎁 보너스 효율(받은 vs 안받은 평균 ROI) ⑥⚖️ 인건비 집중도(상위1명/3명 %) ⑦📅 월말 예상 인건비(이번달 페이스 추정). 추이를 선택월 기준 6개월로 변경",
+  releaseNotes: "인건비 분석 수익 정합성(비수익화 제외+Analytics 실수익 반영) + ROI 분석 추가(수익성 사분면·평균 RPM·수익 기여도·인사이트 시인성) + 작업자 주간/월간 보고서에 ROI 섹션(수익 vs 인건비 그래프)",
   publishedAt: "2026-06-10",
 };
 
