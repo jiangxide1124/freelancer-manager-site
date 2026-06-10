@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.40",
+  latest: "0.4.41",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,7 +34,7 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "인건비 분석 수익 정합성(비수익화 제외+Analytics 실수익 반영) + ROI 분석 추가(수익성 사분면·평균 RPM·수익 기여도·인사이트 시인성) + 작업자 주간/월간 보고서에 ROI 섹션(수익 vs 인건비 그래프)",
+  releaseNotes: "YouTube Analytics 인증 자꾸 풀림(invalid_grant=테스트모드 7일 만료) 안내 — 토큰 갱신 실패 정확한 사유 로깅 + 설정 화면에 프로덕션 게시 경고 + OAuth 가이드에 '3-6 프로덕션 게시' 단계 추가",
   publishedAt: "2026-06-10",
 };
 
