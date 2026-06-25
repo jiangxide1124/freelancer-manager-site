@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.41",
+  latest: "0.4.48",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "YouTube Analytics 인증 자꾸 풀림(invalid_grant=테스트모드 7일 만료) 안내 — 토큰 갱신 실패 정확한 사유 로깅 + 설정 화면에 프로덕션 게시 경고 + OAuth 가이드에 '3-6 프로덕션 게시' 단계 추가",
-  publishedAt: "2026-06-10",
+  releaseNotes: "정산 머니 로직 수정 — 보너스 금지(enable_bonus=0) 작업자 누적보너스 과지급 차단 + 편수보너스 완료영상만 집계 + 수동발송 마감일 정합 + 다크 명세서/서명 + 직원별 픽스",
+  publishedAt: "2026-06-25",
 };
 
 export async function GET() {
