@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.4.48",
+  latest: "0.5.1",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "정산 머니 로직 수정 — 보너스 금지(enable_bonus=0) 작업자 누적보너스 과지급 차단 + 편수보너스 완료영상만 집계 + 수동발송 마감일 정합 + 다크 명세서/서명 + 직원별 픽스",
-  publishedAt: "2026-06-25",
+  releaseNotes: "월별 비교 보고서 신설(수익·구독/조회수·성과/인건비, 대시보드 동일 수익기준, PDF·Excel) + YT Analytics 매일 자동 백필 + 정산 직원별 픽스 + 다크 급여명세서·흰 서명 + 머니 버그 수정(누적보너스 게이트·편수보너스·메일 실수령액) + 신규 정식 프리랜서 자동 수신자",
+  publishedAt: "2026-07-04",
 };
 
 export async function GET() {
