@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.5.1",
+  latest: "0.5.3",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "월별 비교 보고서 신설(수익·구독/조회수·성과/인건비, 대시보드 동일 수익기준, PDF·Excel) + YT Analytics 매일 자동 백필 + 정산 직원별 픽스 + 다크 급여명세서·흰 서명 + 머니 버그 수정(누적보너스 게이트·편수보너스·메일 실수령액) + 신규 정식 프리랜서 자동 수신자",
-  publishedAt: "2026-07-04",
+  releaseNotes: "채널별 제작단가(프리랜서×채널 — 특검해설/정치카툰 등 채널마다 다른 단가, 정산·명세서·의뢰 드롭다운 전파) + 보너스 합계 상세 모달(영상/편수/누적 종류별) + 수습→정식 전환 원클릭 자동화(단가·인력구분·보너스룰·권한·이메일 자동) + 계좌 상단 이동 + KPI 카드 유동·균일 폰트(천만·억 대응) + 프리랜서 폼 그룹핑/고급설정 접기",
+  publishedAt: "2026-07-08",
 };
 
 export async function GET() {
