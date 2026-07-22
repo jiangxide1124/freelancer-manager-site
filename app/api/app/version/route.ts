@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * GitHub Releases의 /latest/download/ URL 패턴은 태그가 바뀌어도 안정적으로 유지됨.
  */
 const VERSION_INFO = {
-  latest: "0.5.8",
+  latest: "0.6.1",
   downloadUrl:
     "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Mac-Client.dmg",
   downloadUrls: {
@@ -34,8 +34,8 @@ const VERSION_INFO = {
         "https://github.com/jiangxide1124/freelancer-manager-releases/releases/latest/download/-Win-Client-Setup.exe",
     },
   },
-  releaseNotes: "TikTok 실측 CPV(채널별) + 단가 산정 모드(일괄/채널별) + 돈계산 정합 8건(누적보너스 카드·전체모드 캡·흑자차트·수습단가 등)",
-  publishedAt: "2026-07-14",
+  releaseNotes: "정직원 급여·4대보험 관리 · 급여 지급월(익월) · 예상 순이익 정직원 토글 · 실시간 조회수(60분/48h·갱신주기 선택) · 기간·요일 단가 조정 · 확정/추정 라벨 정합 · 수습 비용 안내 · 스냅샷 중복 방지",
+  publishedAt: "2026-07-22",
 };
 
 export async function GET() {
